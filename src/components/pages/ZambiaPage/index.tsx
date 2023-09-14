@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 
 import ZambiaHero from './ZambiaHero'
 import Sections from './Sections'

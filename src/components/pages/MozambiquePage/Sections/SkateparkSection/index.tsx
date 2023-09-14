@@ -1,4 +1,3 @@
-import React from 'react'
 import Carousel from 'react-bootstrap/Carousel'
 import Col from 'react-bootstrap/Col'
 import Image from 'react-bootstrap/Image'
@@ -99,7 +98,7 @@ const SkateparkSection = () => (
         </BaseSection.Header.Text>
       </Col>
       <Col sm={12} lg={{span: 8, offset: 2 }} className={styles.videoWrapper}>
-        <iframe width="560" height="350" src="https://www.youtube.com/embed/rp-jLIltMgs" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen />
+        <iframe width="560" height="350" src="https://www.youtube.com/embed/rp-jLIltMgs" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen/>
       </Col>
     </Row>
   </BaseSection>

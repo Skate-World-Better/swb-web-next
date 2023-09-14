@@ -1,4 +1,3 @@
-import React from 'react'
 import Carousel from 'react-bootstrap/Carousel'
 import Col from 'react-bootstrap/Col'
 import Image from 'react-bootstrap/Image'
