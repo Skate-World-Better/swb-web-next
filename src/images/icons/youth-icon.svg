@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50">
+  <g id="Group_169" data-name="Group 169" transform="translate(-2642.041 -16586)">
+    <path id="Icon_material-person-add" data-name="Icon material-person-add" d="M24.181,19.681a6.841,6.841,0,1,0-6.841-6.841A6.839,6.839,0,0,0,24.181,19.681Zm-10.261,0ZM24.181,23.1c-4.566,0-13.681,2.292-13.681,6.841v3.42H37.862v-3.42C37.862,25.393,28.747,23.1,24.181,23.1Z" transform="translate(2631.541 16587.318)" fill="#7fb432"/>
+    <path id="Icon_material-person-add-2" data-name="Icon material-person-add" d="M31.5,27A10.5,10.5,0,1,0,21,16.5,10.5,10.5,0,0,0,31.5,27ZM15.75,27ZM31.5,32.25c-7.009,0-21,3.517-21,10.5V48h42V42.75C52.5,35.767,38.509,32.25,31.5,32.25Z" transform="translate(2641.722 16580)" fill="#f7b70d"/>
+  </g>
+</svg>

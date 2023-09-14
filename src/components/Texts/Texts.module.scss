@@ -1,0 +1,78 @@
+
+.spanBrushed {
+  position: relative;
+  display: inline-block;
+
+  &.block {
+    display: block;
+  }
+}
+
+.brush {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.brushCornerTop {
+  left: -55px;
+  height: 48px;
+  width: 160px;
+  transform: rotate(-43deg);
+}
+
+.brushCornerBottom {
+  top: auto;
+  left: auto;
+  bottom: 0;
+  right: 0;
+  height: 48px;
+  width: 160px;
+  transform: rotate(138deg);
+}
+
+.brushOneAccent {
+  background-image: url('./brushes/brush_stroke_1_accent.svg');
+}
+
+.brushOneSecondary {
+  background-image: url('./brushes/brush_stroke_1_secondary.svg');
+}
+
+.brushOneFaded {
+  background-image: url('./brushes/brush_stroke_1_faded.svg');
+}
+
+.brushOneFadedPlus {
+  background-image: url('./brushes/brush_stroke_1_faded_2.svg');
+}
+
+.brushTwoAccent {
+  background-image: url('./brushes/brush_stroke_2_accent.svg');
+}
+
+.brushTwoSecondary {
+  background-image: url('./brushes/brush_stroke_2_secondary.svg');
+}
+
+.brushTwoFaded {
+  background-image: url('./brushes/brush_stroke_2_faded.svg');
+}
+
+.brushThreeAccent {
+  background-image: url('./brushes/brush_stroke_3_accent.svg');
+}
+
+.brushThreeSecondary {
+  background-image: url('./brushes/brush_stroke_3_secondary.svg');
+}
+
+.brushThreeFaded {
+  background-image: url('./brushes/brush_stroke_3_faded.svg');
+}

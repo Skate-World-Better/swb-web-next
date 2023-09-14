@@ -1,0 +1,73 @@
+.cardCustom {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  color: #16130e;
+
+  &.noShadow {
+    box-shadow: none;
+  }
+
+  .cardImageContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    img {
+      position: absolute;
+    }
+
+    &:not(.fullWidth) img {
+      height: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    &.fullWidth img {
+      width: 100%;
+      height: auto;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+
+  .cardContentContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+
+    display: flex;
+    align-items: flex-end;
+
+    &.withGradient {
+      color: #ffffff;
+      background: transparent linear-gradient(180deg, rgba(247,183,13,0.4738270308123249) 0%,rgba(22,19,14, 1) 100%) no-repeat padding-box;
+
+      &:hover {
+        color: initial;
+      }
+    }
+  }
+
+  .cardContent {
+    width: 100%;
+    padding: 16px;
+    background-color: transparent;
+    transition: background .3s ease;
+  }
+
+  .lightBackground {
+    background-color: #fff;
+  }
+}
+
+.withBlur {
+  filter: blur(1.25px);
+}

@@ -1,0 +1,12 @@
+.heroSection {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  height: 30vh;
+  background-image: url("../../../../images/swaziland-trip.jpg");
+
+  @media (min-width: 425px) {
+    height: 50vh;
+  }
+}

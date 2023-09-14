@@ -1,0 +1,106 @@
+.btn {
+  display: inline-block;
+  font-weight: 400;
+  text-decoration: none !important;
+  cursor: pointer;
+  padding: 4px 24px;
+  border: 2px solid;
+  border-radius: 6px;
+  text-align: center;
+  transition: all .3s ease;
+  outline: none !important;
+  color: black;
+  line-height: 28px;
+}
+
+.btnPrimary {
+  border-color: #f7b70d;
+  background-color: #f7b70d;
+  color: black;
+
+  &:hover {
+    border-color: #f9ca4c;
+    background-color: #f9ca4c;
+    color: black;
+  }
+
+  &:active {
+    border-color: #c99407;
+    background-color: #c99407;
+    color: black;
+  }
+}
+
+.btnSecondary {
+  border-color: #f7b70d;
+  color: #f7b70d;
+
+  &:hover {
+    border-color: #f9ca4c;
+    background-color: #f9ca4c;
+    color: black;
+  }
+
+  &:active {
+    border-color: #c99407;
+    background-color: #c99407;
+    color: black;
+  }
+}
+
+.btnComplementaryDark {
+  border-color: #8db600;
+  background-color: #8db600;
+  color: black;
+
+  &:hover {
+    border-color: #719200;
+    background-color: #719200;
+    color: black;
+  }
+
+  &:active {
+    border-color: #b7ce6b;
+    background-color: #b7ce6b;
+    color: black;
+  }
+}
+
+.btnComplementaryLight {
+  border-color: #8db600;
+  color: #8db600;
+
+  &:hover {
+    border-color: #719200;
+    background-color: #719200;
+    color: black;
+  }
+
+  &:active {
+    border-color: #b7ce6b;
+    background-color: #b7ce6b;
+    color: black;
+  }
+}
+
+.btnAccent {
+  border-color: #1b1811;
+  background-color: #1b1811;
+  color: #ffffff;
+
+  &:hover {
+    border-color: #5e5b56;
+    background-color: #5e5b56;
+    color: #ffffff;
+  }
+
+  &:active {
+    border-color: #16130e;
+    background-color: #16130e;
+    color: #ffffff;
+  }
+}
+
+.btnBlock {
+  display: block;
+}

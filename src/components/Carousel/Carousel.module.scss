@@ -1,0 +1,27 @@
+.carouselContainer {
+  position: relative;
+  padding-bottom: 48px;
+
+  .carouselButtonGroup {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  .carouselItem {
+    margin: 16px 34px 16px 0;
+
+    // Change for breakpoint variable
+    @media (max-width: 464px) {
+      margin: 8px;
+    }
+  }
+
+  .carouselButton {
+    cursor: pointer;
+  }
+}

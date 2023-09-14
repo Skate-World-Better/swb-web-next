@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap');
+
+body {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 28px;
+  color: $black;
+}
+
+.font-alt {
+  font-family: 'Gloria Hallelujah', cursive;
+}
+
+.font-primary {
+  color: #f7b70d;
+}
+
+h2 {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+h3 {
+  font-weight: 600;
+}
+
+h4 {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+h5 {
+  font-size: 1.125rem;
+}
+
+h6 {
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 28px;
+
+  &.sub {
+    font-weight: 400;
+    font-size: 16px;
+  }
+
+  a {
+    color: $black !important;
+
+    &:hover {
+      color: $black !important;
+    }
+  }
+}
+
+.menu-title {
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.item-title {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.social-link {
+  color: $black !important;
+  cursor: pointer;
+
+  &:hover {
+    color: $black !important;
+  }
+}
+
+
+@media (min-width: 992px) {
+  h2 {
+    line-height: 64px;
+    font-size: 3rem;
+  }
+
+  h3 {
+    font-size: 2.250rem;
+  }
+
+  h4 {
+    font-size: 1.5rem;
+  }
+}

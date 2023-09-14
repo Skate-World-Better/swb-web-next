@@ -1,0 +1,11 @@
+.videoWrapper {
+  iframe {
+    display: block;
+    margin: 0 auto;
+
+    @media (max-width: 991.98px) {
+      width: 100%;
+      height: auto;
+    }
+  }
+}

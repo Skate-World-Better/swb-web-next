@@ -1,0 +1,16 @@
+.nav-link {
+  color: $black !important;
+
+  &.disabled {
+    color: #6c757d !important;
+  }
+}
+
+.navbar-toggler,
+.navbar-toggler-icon {
+  border-color: transparent !important;
+
+  &:focus {
+    outline: none;
+  }
+}
