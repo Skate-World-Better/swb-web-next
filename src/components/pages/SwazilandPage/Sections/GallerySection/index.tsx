@@ -5,42 +5,46 @@ import BaseSection from '../../../../BaseSection'
 import MediaCarousel from '../../../../Carousel'
 import ImageCard from '../../../../Card'
 
-import SwazilandGuys from '../../../../../images/swaziland-guys.jpg'
-import SwazilandNature from '../../../../../images/swaziland-nature.jpg'
-import SwazilandTrip from '../../../../../images/swaziland-trip.jpg'
-import SwazilandBuilding from '../../../../../images/swaziland-building.jpg'
-import SwazilandSugar from '../../../../../images/swaziland-sugar.jpg'
-import SwazilandFlag from '../../../../../images/swaziland-flag.jpg'
-import SwazilandCows from '../../../../../images/swaziland-cows.jpg'
-import SwazilandElectricity from '../../../../../images/swaziland-electricity.jpg'
-import SwazilandTruck from '../../../../../images/swaziland-truck.jpg'
+import SwazilandOne from '../../../../../images/swaziland-1.jpg'
+import SwazilandTwo from '../../../../../images/swaziland-2.jpg'
+import SwazilandThree from '../../../../../images/swaziland-3.jpg'
+import SwazilandFour from '../../../../../images/swaziland-4.jpg'
+import SwazilandFive from '../../../../../images/swaziland-5.jpg'
+import SwazilandSix from '../../../../../images/swaziland-6.jpg'
+import SwazilandSeven from '../../../../../images/swaziland-7.jpg'
+import SwazilandEight from '../../../../../images/swaziland-8.jpg'
+import SwazilandNine from '../../../../../images/swaziland-9.jpg'
+import SwazilandTen from '../../../../../images/swaziland-10.jpg'
 
 const data = [{
-    imageSrc: SwazilandGuys,
+    imageSrc: SwazilandOne,
   },
   {
-    imageSrc: SwazilandNature,
+    imageSrc: SwazilandTwo,
   },
   {
-    imageSrc: SwazilandTrip,
+    imageSrc: SwazilandThree,
   },
   {
-    imageSrc: SwazilandTruck,
+    imageSrc: SwazilandFour,
   },
   {
-    imageSrc: SwazilandSugar,
+    imageSrc: SwazilandFive,
   },
   {
-    imageSrc: SwazilandCows,
+    imageSrc: SwazilandSix,
   },
   {
-    imageSrc: SwazilandElectricity,
+    imageSrc: SwazilandSeven,
   },
   {
-    imageSrc: SwazilandFlag,
+    imageSrc: SwazilandEight,
   },
   {
-    imageSrc: SwazilandBuilding,
+    imageSrc: SwazilandNine,
+  },
+  {
+    imageSrc: SwazilandTen,
   }
 ]
 
@@ -53,8 +57,7 @@ const GallerySection = () => (
         </BaseSection.Header.Annotation>
         <BaseSection.Header.Text className="mb-5">Some cool <span className="font-alt font-primary">moments</span></BaseSection.Header.Text>
         <BaseSection.Text className="py-4 mr-lg-5">
-          Here are a few pictures from a trip to Swaziland, last year and from
-          the preparation process. Should you be interested in having one
+          Here are a few pictures from a trip around Swaziland and the construction process. Should you be interested in having one
           printed on your wall, just let us know!
         </BaseSection.Text>
       </Col>

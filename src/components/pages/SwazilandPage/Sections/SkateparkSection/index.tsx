@@ -5,8 +5,18 @@ import Row from 'react-bootstrap/Row'
 
 import BaseSection from '../../../../BaseSection'
 
-import ParkFour from '../../../../../images/swazi-park-four.jpg'
-import ParkSix from '../../../../../images/swazi-park-six.jpg'
+import Park1 from '../../../../../images/swazi-park-1.jpg'
+import Park2 from '../../../../../images/swazi-park-2.jpg'
+import Park3 from '../../../../../images/swazi-park-3.jpg'
+import Park4 from '../../../../../images/swazi-park-4.jpg'
+import Park5 from '../../../../../images/swazi-park-5.jpg'
+import Park6 from '../../../../../images/swazi-park-6.jpg'
+import Park7 from '../../../../../images/swazi-park-7.jpg'
+import Park8 from '../../../../../images/swazi-park-8.jpg'
+import Park9 from '../../../../../images/swazi-park-9.jpg'
+import Park10 from '../../../../../images/swazi-park-10.jpg'
+import Park11 from '../../../../../images/swazi-park-11.jpg'
+import Park12 from '../../../../../images/swazi-park-12.jpg'
 
 const SkateparkSection = () => (
   <BaseSection className="mb-lg-5 py-lg-5">
@@ -17,10 +27,40 @@ const SkateparkSection = () => (
         </BaseSection.Header.Text>
         <Carousel>
            <Carousel.Item>
-             <Image src={ParkSix} className="d-block w-100 h-100"/>
+             <Image src={Park1} className="d-block w-100 h-100"/>
           </Carousel.Item>
           <Carousel.Item>
-             <Image src={ParkFour} className="d-block w-100 h-100"/>
+             <Image src={Park2} className="d-block w-100 h-100"/>
+          </Carousel.Item>
+          <Carousel.Item>
+            <Image src={Park3} className="d-block w-100 h-100"/>
+          </Carousel.Item>
+          <Carousel.Item>
+            <Image src={Park4} className="d-block w-100 h-100"/>
+          </Carousel.Item>
+          <Carousel.Item>
+            <Image src={Park5} className="d-block w-100 h-100"/>
+          </Carousel.Item>
+          <Carousel.Item>
+            <Image src={Park6} className="d-block w-100 h-100"/>
+          </Carousel.Item>
+          <Carousel.Item>
+            <Image src={Park7} className="d-block w-100 h-100"/>
+          </Carousel.Item>
+          <Carousel.Item>
+            <Image src={Park8} className="d-block w-100 h-100"/>
+          </Carousel.Item>
+          <Carousel.Item>
+            <Image src={Park9} className="d-block w-100 h-100"/>
+          </Carousel.Item>
+          <Carousel.Item>
+            <Image src={Park10} className="d-block w-100 h-100"/>
+          </Carousel.Item>
+          <Carousel.Item>
+            <Image src={Park11} className="d-block w-100 h-100"/>
+          </Carousel.Item>
+          <Carousel.Item>
+            <Image src={Park12} className="d-block w-100 h-100"/>
           </Carousel.Item>
         </Carousel>
         <BaseSection.Text className="pt-5 item-title">Coronation skatepark</BaseSection.Text>
