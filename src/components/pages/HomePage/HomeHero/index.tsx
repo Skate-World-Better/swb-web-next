@@ -8,6 +8,7 @@ import BaseSection from '../../../BaseSection'
 import { ReactComponent as AfricaMap } from "../../../../images/africa.svg"
 
 import styles from './index.module.scss'
+import {Link} from "react-router-dom";
 
 const HomeHero = () => (
   <BaseSection className={styles.hero}>
@@ -21,7 +22,8 @@ const HomeHero = () => (
         </BaseSection.Header.Base>
         <BaseSection.Text className="mb-4 pb-5 pb-md-0">
           On a mission to support kids and young adults in Africa through
-          skateboarding.
+          skateboarding.<br/>
+          In close partnership with <Link to="https://www.bonidee.cz/?lang=en">Bonidee Skateparks</Link>.
         </BaseSection.Text>
         <div className="d-flex flex-column flex-md-row justify-content-md-center justify-content-lg-start mt-lg-5">
           <Button

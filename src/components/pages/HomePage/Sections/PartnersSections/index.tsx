@@ -22,8 +22,21 @@ import Wonders from './images/waw.png'
 import WeSkateMongu from './images/we-skate-mongu.png'
 import UNDP from './images/undp.png'
 import CzechAid from './images/czechaid.jpeg'
+import Bonidee from './images/bonidee.png'
+import CeskaTelevie from './images/ceska-televize.png'
+import EuFond from './images/eu-fond.png'
 
 const sponsorsData = [
+  {
+    imageSrc: CeskaTelevie,
+  },
+  {
+    imageSrc: EuFond,
+  },
+  {
+    imageSrc: Bonidee,
+    link: 'https://www.bonidee.cz/?lang=en'
+  },
   {
     imageSrc: UNDP,
     link: 'https://www.undp.org/'

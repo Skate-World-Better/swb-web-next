@@ -28,7 +28,7 @@ const TimelineSection = () => (
           Establishment of SWB
         </BaseSection.Header.Underlined>
         <BaseSection.Header.Annotation className="my-3 mr-lg-3 pb-5 px-4 p-lg-0">
-          We founded SWB in Copenhagen as a university project.
+          We founded SWB in Copenhagen as a university project. After the successful completion of the first skateparks we relocated to Prague.
         </BaseSection.Header.Annotation>
       </Col>
       <Col xs={12} lg={3} className="my-3">
@@ -37,25 +37,25 @@ const TimelineSection = () => (
           First project
         </BaseSection.Header.Underlined>
         <BaseSection.Header.Annotation className="my-3 mr-lg-3 pb-5 px-4 p-lg-0">
-          We build the first two skateparks in Mozambique
+          We build the first two skateparks in Mozambique.
         </BaseSection.Header.Annotation>
       </Col>
       <Col xs={12} lg={3} className="my-3">
         <ExpandingIcon />
         <BaseSection.Header.Underlined className="mt-3 mt-lg-5">
-          Expanding
+          Second project
         </BaseSection.Header.Underlined>
         <BaseSection.Header.Annotation className="my-3 mr-lg-3 pb-5 px-4 p-lg-0">
-          Moved to Prague and we are preparing our next project in Swaziland.
+          We build the first skatepark in Zambia.
         </BaseSection.Header.Annotation>
       </Col>
       <Col xs={12} lg={3} className="my-3">
         <SecondSkateparkIcon />
         <BaseSection.Header.Underlined className="mt-3 mt-lg-5">
-          Second project
+          Third project
         </BaseSection.Header.Underlined>
         <BaseSection.Header.Annotation className="my-3 mr-lg-3 pb-5 px-4 p-lg-0">
-          We build the first skatepark in Zambia
+          In 2023 we managed to build the first ever skatepark in Swaziland and by the end of the year, we will also embark on a mission the Addis Abeba, the capital of Ethiopia.
         </BaseSection.Header.Annotation>
       </Col>
     </Row>

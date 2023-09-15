@@ -29,8 +29,19 @@ import SkateparkBuild from "../../../../../images/skatepark-concrete-build.jpg"
 import SkateparkDrill from "../../../../../images/skatepark-drill.jpg"
 import SkateparkWork from '../../../../../images/skatepark-work.jpg'
 import SkateparkInProgress from '../../../../../images/skatepark-in-progress.jpg'
+import SwazilandOne from '../../../../../images/swaziland-1.jpg'
+import SwazilandTwo from '../../../../../images/swaziland-2.jpg'
+import SwazilandThree from '../../../../../images/swaziland-3.jpg'
+import SwazilandFour from '../../../../../images/swaziland-4.jpg'
+import SwazilandFive from '../../../../../images/swaziland-5.jpg'
+import SwazilandSix from '../../../../../images/swaziland-6.jpg'
+import SwazilandSeven from '../../../../../images/swaziland-7.jpg'
+import SwazilandEight from '../../../../../images/swaziland-8.jpg'
+import SwazilandNine from '../../../../../images/swaziland-9.jpg'
+import SwazilandTen from '../../../../../images/swaziland-10.jpg'
 
 import styles from './index.module.scss'
+import {Link} from "react-router-dom";
 
 const data = [
   {
@@ -105,6 +116,37 @@ const data = [
   {
     imageSrc: MaputoGuys,
   },
+  {
+    imageSrc: SwazilandOne,
+  },
+  {
+    imageSrc: SwazilandTwo,
+  },
+  {
+    imageSrc: SwazilandThree,
+  },
+  {
+    imageSrc: SwazilandFour,
+  },
+  {
+    imageSrc: SwazilandFive,
+  },
+  {
+    imageSrc: SwazilandSix,
+  },
+  {
+    imageSrc: SwazilandSeven,
+  },
+  {
+    imageSrc: SwazilandEight,
+  },
+  {
+    imageSrc: SwazilandNine,
+  },
+  {
+    imageSrc: SwazilandTen,
+  },
+
 ]
 
 const MomentsSection = () => (
@@ -147,6 +189,15 @@ const MomentsSection = () => (
       </Col>
       <Col sm={12} lg={{ span: 8, offset: 2 }} className={styles.videoWrapper}>
         <iframe title="vimeo-player" src="https://player.vimeo.com/video/504058820" width="640" height="360" frameBorder="0" allowFullScreen></iframe>
+      </Col>
+      <Col sm={12} lg={{span: 8, offset: 2}}>
+        <BaseSection.Header.BaseBottom className="mt-5 pt-5 text-center">SKEJTY A LOPATY</BaseSection.Header.BaseBottom>
+        <BaseSection.Text className="mt-2 text-center">
+          Česká Televize got excited about our work and supported us in developing a five episode documentary from the project that took place in Zambia.
+        </BaseSection.Text>
+        <BaseSection.Text className="mt-2 text-center">
+          <Link to="https://www.ceskatelevize.cz/porady/15126029820-skejty-a-lopaty/">Have a look!</Link>
+        </BaseSection.Text>
       </Col>
     </Row>
   </BaseSection>
