@@ -10,6 +10,7 @@ import Button from '../Button'
 import BaseSection from '../BaseSection'
 
 import styles from './index.module.scss'
+import {Link} from "react-router-dom";
 
 const Footer = () => (
   <footer className={styles.footer}>
@@ -36,19 +37,22 @@ const Footer = () => (
         <Col sm={6} lg={4} className="my-4">
           <BaseSection.Text className="pb-3 menu-title">Sitemap</BaseSection.Text>
           <BaseSection.Header.Annotation>
-            <a href="/">Home</a>
+            <Link to="/">Home</Link>
           </BaseSection.Header.Annotation>
           <BaseSection.Header.Annotation>
-            <a href="https://skateworldbetter.shop/">Shop</a>
+            <Link to="https://skateworldbetter.shop/">Shop</Link>
           </BaseSection.Header.Annotation>
           <BaseSection.Header.Annotation>
-            <a href="/src/pages/Index">Index</a>
+            <Link to="/mozambique">Mozambique</Link>
           </BaseSection.Header.Annotation>
           <BaseSection.Header.Annotation>
-            <a href="/Zambia">Zambia</a>
+            <Link to="/zambia">Zambia</Link>
           </BaseSection.Header.Annotation>
           <BaseSection.Header.Annotation>
-            <a href="/swaziland">Swaziland</a>
+            <Link to="/swaziland">Swaziland</Link>
+          </BaseSection.Header.Annotation>
+          <BaseSection.Header.Annotation>
+            <Link to="/ethiopia">Ethiopia</Link>
           </BaseSection.Header.Annotation>
         </Col>
         <Col sm={6} lg={4} className="my-4">
@@ -90,7 +94,7 @@ const Footer = () => (
       </Row>
       <Row className="mt-5">
         <Col sm={12}>
-          <BaseSection.Text className={classNames('text-center', styles.copyright)}>© 2021 Skate World Better</BaseSection.Text>
+          <BaseSection.Text className={classNames('text-center', styles.copyright)}>© {new Date().getFullYear()} Skate World Better</BaseSection.Text>
           {/* Uncomment when applicable */}
 
           {/*<BaseSection.Text className={classNames('text-center', styles.textSmall)}>*/}
