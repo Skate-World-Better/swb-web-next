@@ -52,10 +52,12 @@ const TimelineSection = () => (
       <Col xs={12} lg={3} className="my-3">
         <SecondSkateparkIcon />
         <BaseSection.Header.Underlined className="mt-3 mt-lg-5">
-          Third project
+          Third and fourth project
         </BaseSection.Header.Underlined>
         <BaseSection.Header.Annotation className="my-3 mr-lg-3 pb-5 px-4 p-lg-0">
-          In 2023 we managed to build the first ever skatepark in Swaziland and by the end of the year, we will also embark on a mission the Addis Abeba, the capital of Ethiopia.
+          In 2023 we managed to build the first ever skatepark in Swaziland and by
+          the end of the year we delivered another one in the Addis Abeba, the capital
+          of Ethiopia.
         </BaseSection.Header.Annotation>
       </Col>
     </Row>

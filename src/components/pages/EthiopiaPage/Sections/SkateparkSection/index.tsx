@@ -5,28 +5,26 @@ import Row from 'react-bootstrap/Row'
 
 import BaseSection from '../../../../BaseSection'
 
-import ParkOne from '../../../../../images/Skatepark1.jpg'
-import ParkTwo from '../../../../../images/Skatepark2.jpg'
-import ParkThree from '../../../../../images/Skatepark3.jpg'
-import ParkFour from '../../../../../images/Skatepark4.jpg'
-import ParkFive from '../../../../../images/Skatepark5.jpg'
-import ParkSix from '../../../../../images/Skatepark6.jpg'
-import ParkSeven from '../../../../../images/Skatepark7.jpg'
-import ParkEight from '../../../../../images/Skatepark8.jpg'
-import ParkNine from '../../../../../images/Skatepark9.jpg'
-import ParkTen from '../../../../../images/Skatepark10.jpg'
-import ParkEleven from '../../../../../images/Skatepark11.jpg'
-import ParkTwelve from '../../../../../images/Skatepark12.jpg'
+import ParkOne from '../../../../../images/ethiopia-park-1.jpg'
+import ParkTwo from '../../../../../images/ethiopia-park-2.jpg'
+import ParkThree from '../../../../../images/ethiopia-park-3.jpg'
+import ParkFour from '../../../../../images/ethiopia-park-4.jpg'
+import ParkFive from '../../../../../images/ethiopia-park-5.jpg'
+import ParkSix from '../../../../../images/ethiopia-park-6.jpg'
+import ParkSeven from '../../../../../images/ethiopia-park-7.jpg'
+import ParkEight from '../../../../../images/ethiopia-park-8.jpg'
+import ParkNine from '../../../../../images/ethiopia-park-9.jpg'
+import ParkTen from '../../../../../images/ethiopia-park-10.jpg'
 
 const SkateparkSection = () => (
   <BaseSection className="mb-lg-5 py-lg-5">
     <Row className="align-items-center my-4 py-5 text-center text-lg-left">
       <Col sm={12} lg={8} className="offset-lg-2">
         <BaseSection.Header.Text className="mb-5">
-          This is
+          This is the result of
           <span className="font-alt font-primary">
             {' '}
-            the park
+            our work
           </span>
           !
         </BaseSection.Header.Text>
@@ -61,22 +59,15 @@ const SkateparkSection = () => (
           <Carousel.Item>
             <Image src={ParkTen} className="d-block w-100 h-100"/>
           </Carousel.Item>
-          <Carousel.Item>
-            <Image src={ParkEleven} className="d-block w-100 h-100"/>
-          </Carousel.Item>
-          <Carousel.Item>
-            <Image src={ParkTwelve} className="d-block w-100 h-100"/>
-          </Carousel.Item>
         </Carousel>
         <BaseSection.Text className="pt-5 item-title">
           Lukabe Hande skatepark
           </BaseSection.Text>
         <BaseSection.Header.Annotation className="mr-lg-5">
-          Our good friend Johnny Kalenga came up with the name, explaining that:
-          “Lukaba Hande can be translated as <span className="text-uppercase">we will be allright!</span> We went with this
-          name particularly because when We Skate Mongu started we only had one
-          skateboard and 15 students. We didn't really worry about what we didn't have at
-          that time because we always said: Lukaba Hande!
+          The skatepark is located at the suburban area of the city, right under the
+          Entoto forest surrounding Addis Abeba. We continued on a work once
+          started by California Skateparks. What was once only a miniramp is now
+          a full skatepark with both challenging and beginners elements.
         </BaseSection.Header.Annotation>
       </Col>
     </Row>

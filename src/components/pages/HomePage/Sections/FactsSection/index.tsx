@@ -59,7 +59,7 @@ const FactsSection = () => (
           What we do
         </BaseSection.Header.Annotation>
         <BaseSection.Header.Text className="mb-5">
-          As <span className="font-alt font-primary">skateboarders</span> we do what we know the best
+          As <span className="font-alt font-primary">skateboarders</span> we do what we know best
         </BaseSection.Header.Text>
         <BaseSection.Text className="py-2">
           We build skateparks, we bring boards, we come up with educative
@@ -70,7 +70,7 @@ const FactsSection = () => (
           community. We believe that this aspect can be the key to sustainable
           help. Especially regarding younger generations.
         </BaseSection.Header.Annotation>
-        <Button className="mt-4" link accent href="/mozambique">
+        <Button className="mt-4" link accent href="https://www.ceskatelevize.cz/porady/15126029820-skejty-a-lopaty/">
           See what we did
         </Button>
       </Col>

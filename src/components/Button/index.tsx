@@ -30,7 +30,7 @@ const Button = ({
   block
 }: ButtonProps) => {
   if (link) {
-    return <a href={href} target={target} className={classNames(className, {
+    return <a href={href} rel="noreferrer" target={target} className={classNames(className, {
       [styles.btn]: true,
       [styles.btnPrimary]: primary,
       [styles.btnSecondary]: secondary,
