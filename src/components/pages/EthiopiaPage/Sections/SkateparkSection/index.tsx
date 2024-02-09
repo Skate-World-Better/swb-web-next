@@ -61,7 +61,7 @@ const SkateparkSection = () => (
           </Carousel.Item>
         </Carousel>
         <BaseSection.Text className="pt-5 item-title">
-          Lukabe Hande skatepark
+          Megabi skatepark
           </BaseSection.Text>
         <BaseSection.Header.Annotation className="mr-lg-5">
           The skatepark is located at the suburban area of the city, right under the
