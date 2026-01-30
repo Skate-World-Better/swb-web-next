@@ -9,16 +9,16 @@ import { ReactComponent as AfricaMap } from '../../../../../images/africa-green.
 
 const FactsSection = () => (
   <section className="bg-darkened">
-    <BaseSection className="py-2 py-lg-4">
-      <Row className="my-5 py-5">
-        <Col xs={12} lg={5} className="mt-5 mt-lg-0 pt-5 p-lg-0">
+    <BaseSection className="py-4 py-lg-5">
+      <Row className="my-4 py-4 my-lg-5 py-lg-5">
+        <Col xs={12} lg={5}>
           <Brushed isBlock brushStyle="oneFadedPlus" position={{ left: '-15%', width: '90%', top: '-15%', height: '130%' }}>
             <BaseSection.Header.Base className="font-alt">960,000,000</BaseSection.Header.Base>
             <BaseSection.Text>People in Africa are under 25 years</BaseSection.Text>
           </Brushed>
           <AfricaMap className="pr-5 mt-3" style={{ width: '100%', height: 'auto', fill: '#7FB432' }} />
         </Col>
-        <Col xs={12} lg={5} className="text-center text-lg-left offset-lg-2 ">
+        <Col xs={12} lg={5}>
           <BaseSection.Header.Annotation className="mb-4 sub">
             What we do
           </BaseSection.Header.Annotation>
