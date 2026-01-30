@@ -204,8 +204,8 @@ const MomentsSection = () => (
       </Row>
     </BaseSection>
     <section className="bg-darkened contours">
-      <BaseSection className="py-2 py-lg-4">
-        <Row className="my-5 py-5">
+      <BaseSection className="py-4 py-lg-5">
+        <Row className="my-4 py-4 my-lg-5 py-lg-5">
           <Col sm={12} lg={{span: 8, offset: 2}}>
             <BaseSection.Header.Text className="text-center"><span className="font-alt font-primary">SKEJTY A LOPATY</span></BaseSection.Header.Text>
             <BaseSection.Text className="mt-2 text-center">
