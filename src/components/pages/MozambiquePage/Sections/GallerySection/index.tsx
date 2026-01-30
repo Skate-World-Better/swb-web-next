@@ -71,8 +71,8 @@ const data = [{
 ]
 
 const GallerySection = () => (
-  <BaseSection className="mb-5 py-5 mb-lg-5 py-lg-5">
-    <Row className="align-items-center my-5 py-5 text-center text-lg-left">
+  <BaseSection className="py-4 py-lg-5">
+    <Row className="my-4 py-4 my-lg-5 py-lg-5 align-items-center text-center text-lg-left">
       <Col xs={12} lg={6}>
         <BaseSection.Header.Annotation className="pb-2 sub">
           Photogallery

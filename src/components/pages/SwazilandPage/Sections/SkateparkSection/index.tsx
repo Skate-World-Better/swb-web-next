@@ -17,10 +17,13 @@ import Park9 from '../../../../../images/swazi-park-9.jpg'
 import Park10 from '../../../../../images/swazi-park-10.jpg'
 import Park11 from '../../../../../images/swazi-park-11.jpg'
 import Park12 from '../../../../../images/swazi-park-12.jpg'
+import Park13 from '../../../../../images/swazi-park-13.jpeg'
+import Park14 from '../../../../../images/swazi-park-14.jpeg'
+import Park15 from '../../../../../images/swazi-park-15.jpeg'
 
 const SkateparkSection = () => (
-  <BaseSection className="mb-lg-5 py-lg-5">
-    <Row className="align-items-center my-4 py-5 text-center text-lg-left">
+  <BaseSection className="py-4 py-lg-4">
+    <Row className="my-4 py-4 my-lg-5 py-lg-5 text-center text-lg-left">
       <Col sm={12} lg={8} className="offset-lg-2">
         <BaseSection.Header.Text className="mb-5">
           This is the result of <span className="font-alt font-primary">our work</span>
@@ -61,6 +64,18 @@ const SkateparkSection = () => (
           </Carousel.Item>
           <Carousel.Item>
             <Image src={Park12} className="d-block w-100 h-100"/>
+          </Carousel.Item>
+          <Carousel.Item>
+            <Image src={Park13} className="d-block w-100 h-100"/>
+          </Carousel.Item>
+          <Carousel.Item>
+            <Image src={Park14} className="d-block w-100 h-100"/>
+          </Carousel.Item>
+          <Carousel.Item>
+            <Image src={Park14} className="d-block w-100 h-100"/>
+          </Carousel.Item>
+          <Carousel.Item>
+            <Image src={Park15} className="d-block w-100 h-100"/>
           </Carousel.Item>
         </Carousel>
         <BaseSection.Text className="pt-5 item-title">Coronation skatepark</BaseSection.Text>

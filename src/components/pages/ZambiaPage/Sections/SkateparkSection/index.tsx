@@ -19,8 +19,8 @@ import ParkEleven from '../../../../../images/Skatepark11.jpg'
 import ParkTwelve from '../../../../../images/Skatepark12.jpg'
 
 const SkateparkSection = () => (
-  <BaseSection className="mb-lg-5 py-lg-5">
-    <Row className="align-items-center my-4 py-5 text-center text-lg-left">
+  <BaseSection className="py-4 py-lg-5">
+    <Row className="my-4 py-4 my-lg-5 py-lg-5 text-center text-lg-left">
       <Col sm={12} lg={8} className="offset-lg-2">
         <BaseSection.Header.Text className="mb-5">
           This is

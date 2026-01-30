@@ -1,19 +1,20 @@
 import Col from 'react-bootstrap/Col'
 import Image from 'react-bootstrap/Image'
 import Row from 'react-bootstrap/Row'
+import {Link} from "react-router-dom";
 
 import BaseSection from '../../../../BaseSection/'
 
 import FlagImage from '../../../../../images/swaziland-flag.jpg'
+import TwoSkateparks from '../../../../../images/icons/icon_public_two_skateparks.png'
+import ThreeBlock from '../../../../../images/icons/icon_three_block_center.png'
+import CommunityProjects from '../../../../../images/icons/icon_community_projects.png'
 
-import { ReactComponent as SkateparkIcon } from "../../../../../images/icons/skatepark-icon.svg"
-import { ReactComponent as BbqIcon } from "../../../../../images/icons/bbq-icon.svg"
-import { ReactComponent as HealthIcon } from "../../../../../images/icons/hiv-icon.svg"
-import {Link} from "react-router-dom";
+import ImgIcon from "../../../../ImgIcon";
 
 const AboutSection = () => (
-  <BaseSection className="pt-4 mb-lg-5 py-lg-5">
-    <Row className="mb-4 py-5 text-center text-lg-left">
+  <BaseSection className="py-4 py-lg-5">
+    <Row className="my-4 py-4 my-lg-5 py-lg-5 text-center text-lg-left">
       <Col xs={12} lg={6}>
         <BaseSection.Header.Text className="mb-5">
           What did we do in <span className="font-alt font-primary">Mbabane?</span>
@@ -29,35 +30,36 @@ const AboutSection = () => (
     <Row className="my-2 py-2 my-lg-5 py-lg-5 text-center text-lg-left">
       <Col xs={12}>
         <BaseSection.Header.Annotation className="d-none d-md-block sub">
-          Intensions
+          Results
         </BaseSection.Header.Annotation>
       </Col>
-      <Col xs={12} lg={4} className="my-4">
-        <SkateparkIcon />
+      <Col xs={12} lg={4} className="my-3">
+        <ImgIcon src={TwoSkateparks} size="large" />
         <BaseSection.Header.Underlined className="pb-2 pt-3 py-lg-3 pt-lg-5">
           Public skatepark
         </BaseSection.Header.Underlined>
-        <BaseSection.Header.Annotation className="mr-lg-5 px-4 p-lg-0">
+        <BaseSection.Text className="mr-lg-5 px-4 p-lg-0">
           We have obtained a public land of 350 square meters. A historic, non-functional miniramp stood on that land and we worked it into the new concrete skatepark with all elements of modern skateboarding.
-        </BaseSection.Header.Annotation>
+        </BaseSection.Text>
       </Col>
-      <Col xs={12} lg={4} className="my-4">
-        <HealthIcon />
+      <Col xs={12} lg={4} className="my-3">
+        <ImgIcon src={ThreeBlock} size="large" />
         <BaseSection.Header.Underlined className="pb-2 pt-3 py-lg-3 pt-lg-5">
-          Combating HIV
+          Three Block Fanclub
         </BaseSection.Header.Underlined>
-        <BaseSection.Header.Annotation className="mr-lg-5 px-4 p-lg-0">
-          HIV is a really big issue in Swaziland. Our deal is to help prevent from this deadly dissease through seminars and events taking place in the skatepark.
-        </BaseSection.Header.Annotation>
+        <BaseSection.Text className="mr-lg-5 px-4 p-lg-0">
+          To be found only at Stalinplaza, Prague - Czech Rep. & Lafezeka skatepark, Mbabane - Swaziland. This granite ledge was created in an aim to show respect to the Prague skateboarding community. We created a little Stalinplaza vibe in Africa, to prove that keeping <Link style={{ color: '#007bff' }} to="https://www.instagram.com/stalinplaza/">@stalinplaza</Link> the way it is, is the very best option. Its existence has produced an ambition, creativity and countless friendships over the years and it shall do the same in Swaziland and <a
+          href="https://www.instagram.com/eswatini_skateboarding/">@eswatini_skateboarding</a>
+        </BaseSection.Text>
       </Col>
-      <Col xs={12} lg={4} className="my-4">
-        <BbqIcon />
+      <Col xs={12} lg={4} className="my-3">
+        <ImgIcon src={CommunityProjects} size="large" />
         <BaseSection.Header.Underlined className="py-3 pt-lg-5">
-          Creating a public hub
+          Community projects
         </BaseSection.Header.Underlined>
-        <BaseSection.Header.Annotation className="mr-lg-5 px-4 p-lg-0">
-          Given the nature of the location, the skatepark serves perfectly as a place of public gatherings, BBQ, open air concerts, seminars, workshops and so on.
-        </BaseSection.Header.Annotation>
+        <BaseSection.Text className="mr-lg-5 px-4 p-lg-0">
+          Our key partner on this project was Emaswati skate. The organization has an agenda of working in poorer regions of the country just as much as in the capital city. They use skateboarding to tackle the everyday struggles around the country. This skatepark is the biggest of five facilities that escalated around the country.
+        </BaseSection.Text>
       </Col>
     </Row>
   </BaseSection>
