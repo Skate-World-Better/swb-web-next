@@ -27,6 +27,7 @@ import CeskaTelevie from './images/ceska-televize.png'
 import EuFond from './images/eu-fond.png'
 import ZaletSi from './images/zalet-si.png'
 import Metronome from './images/metronome.png'
+import Skateroom from './images/theskateroom_logo_black.png'
 
 interface Logo {
   imageSrc: string;
@@ -117,6 +118,9 @@ const sponsorsData: Logo[] = [
   },
   {
     imageSrc: Metronome,
+  },
+  {
+    imageSrc: Skateroom,
   }
 ]
 
