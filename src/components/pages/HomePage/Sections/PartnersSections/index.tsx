@@ -1,9 +1,9 @@
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
 
+import styles from './index.module.scss'
+
 import BaseSection from '../../../../BaseSection'
-import ImageCard from '../../../../Card'
-import PartnersCarousel from '../../../../Carousel'
 
 import Alpha from './images/alpha.png'
 import Ambassadors from './images/ambassadors.png'
@@ -25,8 +25,16 @@ import CzechAid from './images/czechaid.jpeg'
 import Bonidee from './images/bonidee.png'
 import CeskaTelevie from './images/ceska-televize.png'
 import EuFond from './images/eu-fond.png'
+import ZaletSi from './images/zalet-si.png'
+import Metronome from './images/metronome.png'
+import Skateroom from './images/theskateroom_logo_black.png'
 
-const sponsorsData = [
+interface Logo {
+  imageSrc: string;
+  link?: string;
+}
+
+const sponsorsData: Logo[] = [
   {
     imageSrc: CeskaTelevie,
   },
@@ -43,7 +51,6 @@ const sponsorsData = [
   },
   {
     imageSrc: CzechAid,
-    fullWidth: true,
     link: 'http://www.czechaid.cz/'
   },
   {
@@ -105,29 +112,61 @@ const sponsorsData = [
   {
     imageSrc: Push,
     link: 'https://www.pushhasselt.be/'
+  },
+  {
+    imageSrc: ZaletSi,
+  },
+  {
+    imageSrc: Metronome,
+  },
+  {
+    imageSrc: Skateroom,
   }
 ]
 
-const PartnersSection = () => (
-  <BaseSection className="mb-5 mb-lg-5 py-lg-5">
-    <Row className="py-5 my-5">
-      <Col xs={12}>
-        <BaseSection.Header.Text className="mb-2 mb-lg-5 px-2 px-lg-0">
-          And we could not have done it without our <span className="font-alt font-primary">partners</span>
-        </BaseSection.Header.Text>
-      </Col>
-      <Col xs={12}>
-        <PartnersCarousel
-          items={sponsorsData}
-          config={{
-            countLarge: 4,
-            countDesktop: 4,
-          }}
-          component={<ImageCard ratio="4:3" isExpandable={false} removeShadow isLink/>}
-        />
-      </Col>
-    </Row>
-  </BaseSection>
-)
+const duplicatedLogos = [...sponsorsData, ...sponsorsData]
+
+const PartnersSection = () => {
+  const handleLogoClick = (logo: Logo) => {
+    if (logo.link) {
+      window.location.href = logo.link;
+    }
+  };
+
+  return (
+    <BaseSection className="py-2 py-lg-4">
+      <Row className="py-5 my-5">
+        <Col xs={12}>
+          <BaseSection.Header.Text className="mb-2 mb-lg-5 px-2 px-lg-0 text-center">
+            And we could not have done it <br /> without our <span className="font-alt font-primary">partners</span>
+          </BaseSection.Header.Text>
+        </Col>
+        <Col xs={12}>
+          <div className={`position-relative ${styles.overflowHidden} mt-5`}>
+            {/* Gradient overlays for blur fade effect */}
+            <div className={styles.logoGradientLeft}/>
+            <div className={styles.logoGradientRight}/>
+
+            {/* Scrolling container */}
+            <div className={`d-flex ${styles.logoScrollContainer}`}>
+              {duplicatedLogos.map((logo, index) => (
+                <div
+                  key={index}
+                  className={`flex-shrink-0 d-flex align-items-center justify-content-center ${styles.logoItem} ${logo.link ? styles.clickable : ''}`}
+                  onClick={() => handleLogoClick(logo)}
+                >
+                  <img
+                    src={logo.imageSrc}
+                    className={styles.logoImage}
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        </Col>
+      </Row>
+    </BaseSection>
+  )
+}
 
 export default PartnersSection

@@ -2,9 +2,7 @@ import classNames from 'classnames'
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
 import Image from "react-bootstrap/Image"
-import { Heart, ShoppingCart, Menu } from 'react-feather'
-
-import Button from '../Button'
+import {Menu} from 'react-feather'
 import Logo from '../../images/swb_logo_new_white.svg'
 
 import styles from './index.module.scss'
@@ -24,9 +22,6 @@ const Header = () => (
             <Nav.Link href="/" className="d-none d-lg-block pl-3 pr-5">
               <Image className={styles.logoImage} src={Logo} fluid />
             </Nav.Link>
-            <Nav.Link href="/" className={classNames('px-lg-4', styles.navLink)}>
-              Home
-            </Nav.Link>
             <Nav.Link href="/mozambique" className={classNames('px-lg-4', styles.navLink)}>
               Mozambique
             </Nav.Link>
@@ -39,30 +34,9 @@ const Header = () => (
             <Nav.Link href="/ethiopia" className={classNames('px-lg-4', styles.navLink)}>
               Ethiopia
             </Nav.Link>
-          </div>
-          <div className="d-flex pt-3 pb-4 p-lg-0 flex-column d-lg-block ml-lg-auto">
-            <Button
-              className="mb-2 mb-lg-0 mx-3"
-              link
-              href="https://skateworldbetter.shop"
-              complementary
-              light
-            >
-              <ShoppingCart size={16} />
-              {' '}
-              <span className="pl-1">Shop</span>
-            </Button>
-            <Button
-              className="mx-3"
-              link
-              href="https://donorbox.org/skateparks-in-africa"
-              target="_blank"
-              primary
-            >
-              <Heart size={16} />
-              {' '}
-              <span className="pl-1">Donate</span>
-            </Button>
+            <Nav.Link href="/lesotho" className={classNames('px-lg-4', styles.navLink)}>
+              Lesotho
+            </Nav.Link>
           </div>
         </Nav>
       </Navbar.Collapse>

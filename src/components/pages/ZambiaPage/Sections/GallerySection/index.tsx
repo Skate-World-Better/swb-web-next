@@ -74,19 +74,15 @@ const data = [
 ]
 
 const GallerySection = () => (
-  <BaseSection className="mb-5 py-5 mb-lg-5 py-lg-5">
-    <Row className="mb-5 align-items-center py-5 text-center text-lg-left">
+  <BaseSection className="py-4 py-lg-5">
+    <Row className="my-4 py-4 my-lg-5 py-lg-5 text-center text-lg-left">
       <Col xs={12} lg={6}>
         <BaseSection.Header.Annotation className="pb-2 sub">
           Photogallery
         </BaseSection.Header.Annotation>
         <BaseSection.Header.Text className="mb-5">Zambia is the <span className="font-alt font-primary">fashion</span></BaseSection.Header.Text>
         <BaseSection.Text className="py-4 mr-lg-5">
-          We produce our own merch to celebrate the cultures of Africa, of its
-          countries and people. You can find all of our pieces{' '}
-          <a href="https://skateworldbetter.shop/" target="_blank" className="link-dark font-primary">
-            here
-          </a>.
+          We produce our own merch to celebrate the cultures of Africa, of its countries and people. Visit one of the events, we organize, or simply text us on instagram if you want your piece!
         </BaseSection.Text>
       </Col>
       <Col xs={12} lg={6}>

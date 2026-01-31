@@ -11,14 +11,16 @@ import BaseSection from '../BaseSection'
 
 import styles from './index.module.scss'
 import {Link} from "react-router-dom";
+import Logo from "../../images/swb_logo_new_black.svg";
+import Image from "react-bootstrap/esm/Image";
 
 const Footer = () => (
-  <footer className={styles.footer}>
+  <footer className={classNames(styles.footer, 'contours footer')}>
     <BaseSection className="px-4 px-lg-0">
       <Row>
         <Col sm={12} lg={4} className="my-4">
           <BaseSection.Text className="pb-3 menu-title">
-            Skate World Better
+            <Image className={styles.logoImage} src={Logo} fluid />
           </BaseSection.Text>
           <BaseSection.Header.Annotation>
             We are a non-profit organization building skateparks around Africa.
@@ -53,6 +55,9 @@ const Footer = () => (
           </BaseSection.Header.Annotation>
           <BaseSection.Header.Annotation>
             <Link to="/ethiopia">Ethiopia</Link>
+          </BaseSection.Header.Annotation>
+          <BaseSection.Header.Annotation>
+            <Link to="/lesotho">Lesotho</Link>
           </BaseSection.Header.Annotation>
         </Col>
         <Col sm={6} lg={4} className="my-4">

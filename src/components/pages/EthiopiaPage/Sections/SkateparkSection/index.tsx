@@ -17,8 +17,8 @@ import ParkNine from '../../../../../images/ethiopia-park-9.jpg'
 import ParkTen from '../../../../../images/ethiopia-park-10.jpg'
 
 const SkateparkSection = () => (
-  <BaseSection className="mb-lg-5 py-lg-5">
-    <Row className="align-items-center my-4 py-5 text-center text-lg-left">
+  <BaseSection className="py-4 py-lg-5">
+    <Row className="my-4 py-4 my-lg-5 py-lg-5 text-center text-lg-left">
       <Col sm={12} lg={8} className="offset-lg-2">
         <BaseSection.Header.Text className="mb-5">
           This is the result of
@@ -67,7 +67,7 @@ const SkateparkSection = () => (
           The skatepark is located at the suburban area of the city, right under the
           Entoto forest surrounding Addis Abeba. We continued on a work once
           started by California Skateparks. What was once only a miniramp is now
-          a full skatepark with both challenging and beginners elements.
+          a full skatepark with both challenging and beginners elements. This project was funded from the Czech-UNDP partnership and our peers from the Czech skateboarding community.
         </BaseSection.Header.Annotation>
       </Col>
     </Row>

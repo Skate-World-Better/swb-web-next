@@ -1,0 +1,20 @@
+.contours {
+  background-position: center center;
+  background-size: cover;
+
+  &.bg-whitend {
+    background-image: url('../assets/backgrounds/contours-white.svg');
+  }
+
+  &.bg-darkened {
+    background-image: url('../assets/backgrounds/contours-beige.svg');
+  }
+
+  &.footer {
+    background-image: url('../assets/backgrounds/contours-green.svg');
+  }
+}
+
+.bg-darkened {
+  background-color: #f5f3ed;
+}

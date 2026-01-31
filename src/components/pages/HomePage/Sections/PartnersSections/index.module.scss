@@ -1,0 +1,78 @@
+/* Logo Carousel Styles */
+
+.overflowHidden {
+  overflow: hidden;
+}
+
+/* Gradient overlays for blur fade effect */
+.logoGradientLeft {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 120px;
+  background: linear-gradient(to right, #fff 0%, rgba(255, 255, 255, 0) 100%);
+  z-index: 10;
+  pointer-events: none;
+}
+
+.logoGradientRight {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 120px;
+  background: linear-gradient(to left, #fff 0%, rgba(255, 255, 255, 0) 100%);
+  z-index: 10;
+  pointer-events: none;
+}
+
+/* Scrolling animation */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-50% - 2rem));
+  }
+}
+
+.logoScrollContainer {
+  animation: scroll 40s linear infinite;
+  gap: 4rem;
+  width: fit-content;
+
+  &:hover {
+    animation-play-state: paused;
+  }
+}
+
+/* Logo items */
+.logoItem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  filter: grayscale(100%);
+  transition: filter 0.3s ease;
+
+  &:hover {
+    filter: grayscale(0%);
+  }
+
+  &.clickable {
+    cursor: pointer;
+  }
+}
+
+.logoImage {
+  height: 6rem;
+  width: auto;
+  max-width: 12rem;
+  object-fit: contain;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+
+  .logoItem:hover & {
+    opacity: 1;
+  }
+}
