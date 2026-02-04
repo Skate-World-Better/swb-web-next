@@ -1,6 +1,6 @@
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
-import {Mail} from 'react-feather'
+import {ShoppingBag, Mail} from 'react-feather'
 import {Link} from "react-router-dom";
 import styles from './index.module.scss'
 import Button from '../../../Button'
@@ -11,7 +11,7 @@ import {ReactComponent as AfricaMap} from "../../../../images/africa.svg"
 const HomeHero = () => (
   <section className="contours bg-whitend">
     <BaseSection className={styles.hero}>
-      <Row className="vh-100 align-items-center" style={{ maxHeight: '1440px'}}>
+      <Row className="vh-100 align-items-center" style={{ maxHeight: '1440px', marginTop: '-10%' }}>
         <Col sm={12} lg={6} className="text-center text-lg-left">
           <BaseSection.Header.Annotation className="mb-4 pt-5 pt-lg-0">
             Skate World Better
@@ -33,6 +33,15 @@ const HomeHero = () => (
             >
               <Mail size={16} />
               <span className="pl-1 ml-1">Get in touch</span>
+            </Button>
+            <Button
+              link
+              href="https://www.freshlabels.cz/en/skate-world-better/"
+              primary
+              className="ml-md-3 mt-2 mt-md-0"
+            >
+              <ShoppingBag size={16} />
+              <span className="pl-1 ml-1">Shop here</span>
             </Button>
           </div>
         </Col>

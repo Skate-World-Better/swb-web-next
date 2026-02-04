@@ -3,7 +3,7 @@ import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
 import Image from "react-bootstrap/Image"
 import {Menu} from 'react-feather'
-import Logo from '../../images/swb_logo_new_white.svg'
+import Logo from '../../images/swb_logos/Kolo_SWB-03.svg'
 
 import styles from './index.module.scss'
 

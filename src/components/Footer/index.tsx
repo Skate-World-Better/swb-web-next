@@ -11,7 +11,7 @@ import BaseSection from '../BaseSection'
 
 import styles from './index.module.scss'
 import {Link} from "react-router-dom";
-import Logo from "../../images/swb_logo_new_black.svg";
+import Logo from '../../images/swb_logos/Kolo_SWB-02.svg'
 import Image from "react-bootstrap/esm/Image";
 
 const Footer = () => (

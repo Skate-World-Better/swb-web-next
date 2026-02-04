@@ -13,8 +13,6 @@ import WAW from './images/waw.jpg'
 import RadioWave from './images/radio-wave.jpg'
 import E15 from './images/e15.jpg'
 import Skateism from './images/skateism.jpg'
-import Boardmag from './images/boardmag.jpg'
-import SkateRock from './images/skaterock.jpg'
 import CT4Sport from './images/ct4-sport.jpg'
 import HostLucie from './images/host-lucie.jpg'
 import ReporterPremium from './images/reporter-premium.png'
@@ -25,7 +23,7 @@ const pressData = [
   {
     imageSrc: GoOut,
     title: "IDEAS",
-    link: "https://ceskepodcasty.cz/episode/GraotClb5HS7LB1keQ4s"
+    link: "https://open.spotify.com/episode/62B8vln4X2EVOW9JPWBvxq"
   },
   {
     imageSrc: HospodarskeNoviny,
@@ -86,16 +84,6 @@ const pressData = [
      imageSrc: Skateism,
      title: "Skateism",
      link: "https://www.skateism.com/pay-respect-pour-concrete-martin-louzecky-of-skate-world-better/"
-  },
-  {
-     imageSrc: Boardmag,
-     title: "Boardmag",
-     link: "http://www.boardmag.cz/featured/projekt-skate-world-better-ktery-ma-za-ukol-postavit-skatepark-v-mozambiku-se-pomalu-blizi-ke-sve-realizaci/"
-  },
-  {
-     imageSrc: SkateRock,
-     title: "SkateRock",
-     link: "https://www.skaterock.cz/udalosti/skejty-ambassadors-pomahaji-v-mozambiku-v-kampani-skate-world-better/"
   }
 ]
 

@@ -57,7 +57,7 @@ const AboutSection = () => (
         </BaseSection.Header.Underlined>
         <BaseSection.Text className="mr-lg-5 px-4 p-lg-0">
           We have a great support for this project amidst the local crew, but also the local non-profit sector. We count on a regular involvement of the Lesotho skateboarding members, but on top of that, we have partnered with <a
-          href="https://www.kick4life.org/">Kick4Life</a> organization that will be involved in the construction process. (proklik na kick4life pls)
+          href="https://www.kick4life.org/">Kick4Life</a> organization that will be involved in the construction process.
         </BaseSection.Text>
       </Col>
     </Row>
