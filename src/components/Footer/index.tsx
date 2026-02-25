@@ -20,7 +20,7 @@ const Footer = () => (
       <Row>
         <Col sm={12} lg={4} className="my-4">
           <BaseSection.Text className="pb-3 menu-title">
-            <Image className={styles.logoImage} src={Logo} fluid />
+            <Image className={styles.logoImage} src={Logo} fluid alt="Skate World Better logo" />
           </BaseSection.Text>
           <BaseSection.Header.Annotation>
             We are a non-profit organization building skateparks around Africa.
@@ -42,7 +42,7 @@ const Footer = () => (
             <Link to="/">Home</Link>
           </BaseSection.Header.Annotation>
           <BaseSection.Header.Annotation>
-            <Link to="https://skateworldbetter.shop/">Shop</Link>
+            <a href="https://skateworldbetter.shop/" target="_blank" rel="noreferrer noopener">Shop</a>
           </BaseSection.Header.Annotation>
           <BaseSection.Header.Annotation>
             <Link to="/mozambique">Mozambique</Link>
@@ -65,7 +65,7 @@ const Footer = () => (
           <a
             href="https://www.facebook.com/skateworldbetter"
             target="_blank"
-            rel="norefferer noopener"
+            rel="noreferrer noopener"
             className="d-flex align-items-center mb-2 social-link"
           >
             <Facebook size={16} />
@@ -76,7 +76,7 @@ const Footer = () => (
           <a
             href="https://www.instagram.com/skateworldbetter/"
             target="_blank"
-            rel="norefferer noopener"
+            rel="noreferrer noopener"
             className="d-flex align-items-center mb-2 social-link"
           >
             <Instagram size={16} />
@@ -87,7 +87,7 @@ const Footer = () => (
           <a
             href="https://www.youtube.com/channel/UC3_R6isvwmD0XycwBKTjAfg"
             target="_blank"
-            rel="norefferer noopener"
+            rel="noreferrer noopener"
             className="d-flex align-items-center mb-2 social-link"
           >
             <Youtube size={16} />
@@ -100,11 +100,6 @@ const Footer = () => (
       <Row className="mt-5">
         <Col sm={12}>
           <BaseSection.Text className={classNames('text-center', styles.copyright)}>© {new Date().getFullYear()} Skate World Better</BaseSection.Text>
-          {/* Uncomment when applicable */}
-
-          {/*<BaseSection.Text className={classNames('text-center', styles.textSmall)}>*/}
-          {/*  When you visit or interact with our sites, services, applications, tools or messaging, we or our authorised service providers may use cookies, web beacons, and other similar technologies for storing information to help provide you with a better, faster and safer experience and for marketing purposes.*/}
-          {/*</BaseSection.Text>*/}
         </Col>
       </Row>
     </BaseSection>

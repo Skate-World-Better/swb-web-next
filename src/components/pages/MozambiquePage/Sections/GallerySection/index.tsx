@@ -5,70 +5,8 @@ import BaseSection from '../../../../BaseSection'
 import MediaCarousel from '../../../../Carousel'
 import ImageCard from '../../../../Card'
 
-import BoysImage from '../../../../../images/boys-in-skatepark.jpg'
-import KidsAndBoards from '../../../../../images/kids-and-skateboards.jpg'
-import KidsInSkatepark from '../../../../../images/kids-in-skatepark.jpg'
-import KidsAndSkatepark from '../../../../../images/kids-and-skatepark.jpg'
-import KidsInDoneSkatepark from '../../../../../images/kids-in-done-skatepark.jpg'
-import KidsAssemblingBoards from "../../../../../images/kids-assembling-skateboard.jpg"
-import MaputoKids from '../../../../../images/maputo-kids.jpg'
-import MaputoKiddos from '../../../../../images/maputo-kiddos.png'
-import MaputoGirl from '../../../../../images/maputo-girl.jpg'
-import MaputoGuys from '../../../../../images/maputo-guys.jpg'
-import SkateboardAssembling from '../../../../../images/skateboard-assembling.jpg'
-import SkateparkBuild from "../../../../../images/skatepark-concrete-build.jpg"
-import SkateparkDrill from "../../../../../images/skatepark-drill.jpg"
-import SkateparkWork from '../../../../../images/skatepark-work.jpg'
-import SkateparkInProgress from '../../../../../images/skatepark-in-progress.jpg'
-
+import { mozambiqueGalleryData } from '../../../../../data/galleries/mozambique'
 import CorruptionInMozambique from './documents/Corruption-in-Mozambique.pdf'
-
-const data = [{
-    imageSrc: MaputoGirl,
-  },
-  {
-    imageSrc: KidsAssemblingBoards,
-  },
-  {
-    imageSrc: BoysImage,
-  },
-  {
-    imageSrc: KidsAndBoards,
-  },
-  {
-    imageSrc: SkateparkDrill,
-  },
-  {
-    imageSrc: KidsAndSkatepark,
-  },
-  {
-    imageSrc: MaputoKiddos,
-  },
-  {
-    imageSrc: SkateparkBuild,
-  },
-  {
-    imageSrc: KidsInSkatepark,
-  },
-  {
-    imageSrc: SkateparkWork,
-  },
-  {
-    imageSrc: KidsInDoneSkatepark,
-  },
-  {
-    imageSrc: MaputoKids,
-  },
-  {
-    imageSrc: SkateparkInProgress,
-  },
-  {
-    imageSrc: SkateboardAssembling,
-  },
-  {
-    imageSrc: MaputoGuys,
-  },
-]
 
 const GallerySection = () => (
   <BaseSection className="py-4 py-lg-5">
@@ -83,22 +21,24 @@ const GallerySection = () => (
           results of our work. Should you be interested in having one printed on
           your wall, just let us know! Read the assessment on corruption in
           Mozambique put together by Martin Loužecký, the founder of SWB, as
-          his diploma work <a target="_blank" href={CorruptionInMozambique}>here</a>.
+          his diploma work <a target="_blank" rel="noreferrer noopener" href={CorruptionInMozambique}>here</a>.
         </BaseSection.Text>
       </Col>
       <Col xs={12} lg={6}>
         <MediaCarousel
-          items={data}
+          items={mozambiqueGalleryData}
           config={{
             countLarge: 2,
             countDesktop: 2,
           }}
-          component={
+          renderItem={(data) => (
             <ImageCard
               ratio="2:3"
               isExpandable={false}
+              imageSrc={data.imageSrc as string}
+              loading="eager"
             />
-          }
+          )}
         />
       </Col>
     </Row>

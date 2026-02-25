@@ -1,5 +1,5 @@
 import Layout from "../../components/Layout/index.js"
-import SEO from "../../components/seo.js"
+import SEO from "../../components/SEO"
 import LesothoPage from "../../components/pages/LesothoPage";
 
 const Lesotho = () => (

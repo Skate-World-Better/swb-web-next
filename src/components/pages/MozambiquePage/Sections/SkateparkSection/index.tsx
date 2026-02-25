@@ -41,19 +41,19 @@ const SkateparkSection = () => (
         <Col sm={12} lg={6} className="mb-4 mb-lg-0 pl-lg-5 my-lg-auto">
           <Carousel style={{ paddingBottom: '1rem'}}>
             <Carousel.Item className={styles.carouselItem}>
-              <Image src={MaxaqueneZero} className="d-block w-100 h-100"/>
+              <Image src={MaxaqueneZero} className="d-block w-100 h-100" loading="lazy"/>
             </Carousel.Item>
             <Carousel.Item className={styles.carouselItem}>
-              <Image src={MaxaqueneOne} className="d-block w-100 h-100"/>
+              <Image src={MaxaqueneOne} className="d-block w-100 h-100" loading="lazy"/>
             </Carousel.Item>
             <Carousel.Item className={styles.carouselItem}>
-              <Image src={MaxaqueneTwo} className="d-block w-100 h-100"/>
+              <Image src={MaxaqueneTwo} className="d-block w-100 h-100" loading="lazy"/>
             </Carousel.Item>
             <Carousel.Item className={styles.carouselItem}>
-              <Image src={MaxaqueneThree} className="d-block w-100 h-100"/>
+              <Image src={MaxaqueneThree} className="d-block w-100 h-100" loading="lazy"/>
             </Carousel.Item>
             <Carousel.Item className={styles.carouselItem}>
-              <Image src={MaxaqueneFour} className="d-block w-100 h-100"/>
+              <Image src={MaxaqueneFour} className="d-block w-100 h-100" loading="lazy"/>
             </Carousel.Item>
           </Carousel>
         </Col>
@@ -62,19 +62,19 @@ const SkateparkSection = () => (
         <Col sm={12} lg={6} className="mb-4 mb-lg-0 pr-lg-5 my-lg-auto">
           <Carousel style={{ paddingBottom: '1rem'}}>
             <Carousel.Item className={styles.carouselItem}>
-              <Image src={KhongoloteZero} className="d-block w-100 h-100"/>
+              <Image src={KhongoloteZero} className="d-block w-100 h-100" loading="lazy"/>
             </Carousel.Item>
             <Carousel.Item className={styles.carouselItem}>
-              <Image src={KhongoloteOne} className="d-block w-100 h-100"/>
+              <Image src={KhongoloteOne} className="d-block w-100 h-100" loading="lazy"/>
             </Carousel.Item>
             <Carousel.Item className={styles.carouselItem}>
-              <Image src={KhongoloteTwo} className="d-block w-100 h-100"/>
+              <Image src={KhongoloteTwo} className="d-block w-100 h-100" loading="lazy"/>
             </Carousel.Item>
             <Carousel.Item className={styles.carouselItem}>
-              <Image src={KhongoloteThree} className="d-block w-100 h-100"/>
+              <Image src={KhongoloteThree} className="d-block w-100 h-100" loading="lazy"/>
             </Carousel.Item>
             <Carousel.Item className={styles.carouselItem}>
-              <Image src={KhongoloteFour} className="d-block w-100 h-100"/>
+              <Image src={KhongoloteFour} className="d-block w-100 h-100" loading="lazy"/>
             </Carousel.Item>
           </Carousel>
         </Col>

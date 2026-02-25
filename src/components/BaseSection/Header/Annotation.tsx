@@ -1,12 +1,15 @@
+import type { ElementType, ReactNode } from 'react'
+
 interface AnnotationProps {
-  children: any
+  children: ReactNode
   className?: string
+  as?: ElementType
 }
 
-const Annotation = ({children, className}: AnnotationProps) => (
-  <h6 className={className}>
+const Annotation = ({children, className, as: Tag = 'h6'}: AnnotationProps) => (
+  <Tag className={className}>
     {children}
-  </h6>
+  </Tag>
 )
 
 Annotation.displayName = 'BaseSection.Header.Annotation'

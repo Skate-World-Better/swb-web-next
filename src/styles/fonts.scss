@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap');
+// Google Fonts loaded via <link> in index.html for better performance
+// (preconnect hints + non-blocking discovery)
 
 body {
   font-family: 'Poppins', sans-serif;
@@ -17,6 +17,7 @@ body {
   color: $primary;
 }
 
+h1,
 h2 {
   font-size: 2rem;
   font-weight: 700;
@@ -75,6 +76,7 @@ h6 {
 
 
 @media (min-width: 992px) {
+  h1,
   h2 {
     line-height: 64px;
     font-size: 3rem;

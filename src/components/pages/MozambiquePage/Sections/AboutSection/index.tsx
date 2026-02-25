@@ -21,7 +21,7 @@ const AboutSection = () => (
         </BaseSection.Text>
       </Col>
       <Col xs={12} lg={6}>
-        <Image src={KidsImage} fluid rounded />
+        <Image src={KidsImage} fluid rounded loading="lazy" />
       </Col>
     </Row>
     <Row className="my-2 py-2 my-lg-5 py-lg-5 text-center text-lg-left">

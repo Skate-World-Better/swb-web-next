@@ -42,7 +42,7 @@ const AboutSection = () => (
         </BaseSection.Text>
       </Col>
       <Col xs={12} lg={6}>
-        <Image src={KidsEthiopia} fluid rounded className="mt-lg-5" />
+        <Image src={KidsEthiopia} fluid rounded className="mt-lg-5" loading="lazy" />
         <BaseSection.Text className="mt-lg-5 mr-lg-4 mb-5 mb-md-0">
           "Megabi House is a home for children and youth who literally have no place to sleep. In our community there are many street kids who have no home or family to go home to at the end of the day"
         </BaseSection.Text>

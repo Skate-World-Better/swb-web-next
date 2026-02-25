@@ -1,9 +1,15 @@
+import type { ReactNode } from 'react'
+import type { ContainerProps } from 'react-bootstrap/Container'
 import Container from 'react-bootstrap/Container'
 
 import Header from './Header'
 import Text from './Text.tsx'
 
-const BaseSection = ({ children,  ...props }: any) => (
+interface BaseSectionProps extends ContainerProps {
+  children: ReactNode
+}
+
+const BaseSection = ({ children, ...props }: BaseSectionProps) => (
   <Container {...props}>
     {children}
   </Container>

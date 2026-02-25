@@ -1,17 +1,17 @@
-import { useEffect } from 'react'
-
-import ZambiaHero from './ZambiaHero'
+import CountryHero from '../../CountryHero'
 import Sections from './Sections'
 
-const ZambiaPage = () => {
-  useEffect(() => {
-    window.scrollTo({ top: 0 })
-  }, [])
+import heroImage from '../../../images/zambia-hero.jpg'
 
-  return <>
-    <ZambiaHero/>
+const ZambiaPage = () => (
+  <>
+    <CountryHero
+      cityName="Mongu"
+      countryName="Zambia"
+      backgroundImage={heroImage}
+    />
     <Sections/>
   </>
-}
+)
 
 export default ZambiaPage

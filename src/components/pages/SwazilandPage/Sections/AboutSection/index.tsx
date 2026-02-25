@@ -1,8 +1,6 @@
 import Col from 'react-bootstrap/Col'
 import Image from 'react-bootstrap/Image'
 import Row from 'react-bootstrap/Row'
-import {Link} from "react-router-dom";
-
 import BaseSection from '../../../../BaseSection/'
 
 import FlagImage from '../../../../../images/swaziland-flag.jpg'
@@ -20,11 +18,11 @@ const AboutSection = () => (
           What did we do in <span className="font-alt font-primary">Mbabane?</span>
         </BaseSection.Header.Text>
         <BaseSection.Text className="mt-lg-2 mr-lg-4 mb-5 mb-md-0">
-          Mbabane is the capital city of Swaziland right in the middle of the Drakensberg range. We built a skatepark in a public park in the middle of the city with the great view over the mountains. We went down in early 2023 in a group of eight volunteers from RSA, France, Belgium and mostly the crew from <Link to="https://www.bonidee.cz/?lang=en">Bonidee Skateparks</Link>. In forty days we managed to build a multifunctional 350 square meter big skatepark feasible for cultural events, gatherings, BBQ and so on. We engaged with an Italian NGO Cospe who regularly runs their program called “YES” - Youth Empowerment Strategy on top of the skateboarding classes secured by the local organization Emaswati Skate.
+          Mbabane is the capital city of Swaziland right in the middle of the Drakensberg range. We built a skatepark in a public park in the middle of the city with the great view over the mountains. We went down in early 2023 in a group of eight volunteers from RSA, France, Belgium and mostly the crew from <a href="https://www.bonidee.cz/?lang=en" target="_blank" rel="noreferrer noopener">Bonidee Skateparks</a>. In forty days we managed to build a multifunctional 350 square meter big skatepark feasible for cultural events, gatherings, BBQ and so on. We engaged with an Italian NGO Cospe who regularly runs their program called “YES” - Youth Empowerment Strategy on top of the skateboarding classes secured by the local organization Emaswati Skate.
         </BaseSection.Text>
       </Col>
       <Col xs={12} lg={6}>
-        <Image src={FlagImage} fluid rounded />
+        <Image src={FlagImage} fluid rounded loading="lazy" />
       </Col>
     </Row>
     <Row className="my-2 py-2 my-lg-5 py-lg-5 text-center text-lg-left">
@@ -48,8 +46,8 @@ const AboutSection = () => (
           Three Block Fanclub
         </BaseSection.Header.Underlined>
         <BaseSection.Text className="mr-lg-5 px-4 p-lg-0">
-          To be found only at Stalinplaza, Prague - Czech Rep. & Lafezeka skatepark, Mbabane - Swaziland. This granite ledge was created in an aim to show respect to the Prague skateboarding community. We created a little Stalinplaza vibe in Africa, to prove that keeping <Link style={{ color: '#007bff' }} to="https://www.instagram.com/stalinplaza/">@stalinplaza</Link> the way it is, is the very best option. Its existence has produced an ambition, creativity and countless friendships over the years and it shall do the same in Swaziland and <a
-          href="https://www.instagram.com/eswatini_skateboarding/">@eswatini_skateboarding</a>
+          To be found only at Stalinplaza, Prague - Czech Rep. & Lafezeka skatepark, Mbabane - Swaziland. This granite ledge was created in an aim to show respect to the Prague skateboarding community. We created a little Stalinplaza vibe in Africa, to prove that keeping <a href="https://www.instagram.com/stalinplaza/" target="_blank" rel="noreferrer noopener">@stalinplaza</a> the way it is, is the very best option. Its existence has produced an ambition, creativity and countless friendships over the years and it shall do the same in Swaziland and <a
+          href="https://www.instagram.com/eswatini_skateboarding/" target="_blank" rel="noreferrer noopener">@eswatini_skateboarding</a>
         </BaseSection.Text>
       </Col>
       <Col xs={12} lg={4} className="my-3">

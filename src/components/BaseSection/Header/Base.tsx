@@ -1,7 +1,15 @@
-const Base = ({children, className}: any) => (
-  <h2 className={className}>
+import type { ElementType, ReactNode } from 'react'
+
+interface BaseProps {
+  children: ReactNode
+  className?: string
+  as?: ElementType
+}
+
+const Base = ({children, className, as: Tag = 'h2'}: BaseProps) => (
+  <Tag className={className}>
     {children}
-  </h2>
+  </Tag>
 )
 
 Base.displayName = 'BaseSection.Header.Base'

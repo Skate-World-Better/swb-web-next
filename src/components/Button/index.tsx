@@ -1,9 +1,10 @@
+import type { ReactNode } from 'react'
 import classNames from 'classnames'
 
 import styles from './index.module.scss'
 
 interface ButtonProps {
-  children: any
+  children: ReactNode
   className?: string
   link?: boolean
   href?: string
@@ -43,7 +44,7 @@ const Button = ({
     </a>
   }
 
-  return <button className={classNames(className, {
+  return <button type="button" className={classNames(className, {
     [styles.btn]: true,
     [styles.btnAccent]: accent,
     [styles.btnPrimary]: primary,

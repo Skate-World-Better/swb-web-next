@@ -11,7 +11,7 @@ const Header = () => (
   <header className={styles.header}>
     <Navbar expand="lg">
       <Navbar.Brand href="/" className="d-lg-none">
-        <Image className={styles.logoImage} src={Logo} fluid />
+        <Image className={styles.logoImage} src={Logo} fluid alt="Skate World Better logo" />
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav">
         <Menu className={styles.burger} size={32} />
@@ -20,7 +20,7 @@ const Header = () => (
         <Nav className="w-100 align-items-center">
           <div className="d-flex flex-column flex-lg-row mx-lg-5 align-items-center">
             <Nav.Link href="/" className="d-none d-lg-block pl-3 pr-5">
-              <Image className={styles.logoImage} src={Logo} fluid />
+              <Image className={styles.logoImage} src={Logo} fluid alt="Skate World Better logo" />
             </Nav.Link>
             <Nav.Link href="/mozambique" className={classNames('px-lg-4', styles.navLink)}>
               Mozambique

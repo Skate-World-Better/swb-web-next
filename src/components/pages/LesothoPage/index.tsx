@@ -1,17 +1,17 @@
-import { useEffect } from 'react'
-
-import LesothoHero from './LesothoHero'
+import CountryHero from '../../CountryHero'
 import Sections from './Sections'
 
-const LesothoPage = () => {
-  useEffect(() => {
-    window.scrollTo({ top: 0 })
-  }, [])
+import heroImage from '../../../images/lesotho-2.jpg'
 
-  return <>
-    <LesothoHero/>
+const LesothoPage = () => (
+  <>
+    <CountryHero
+      cityName="Maseru"
+      countryName="Lesotho"
+      backgroundImage={heroImage}
+    />
     <Sections/>
   </>
-}
+)
 
 export default LesothoPage

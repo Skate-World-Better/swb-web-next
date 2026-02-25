@@ -5,7 +5,7 @@ import BaseSection from '../../../BaseSection'
 
 import styles from './index.module.scss'
 
-const SwazilandHero = () => (
+const ZambiaHero = () => (
   <BaseSection className={styles.heroSection} fluid>
     <Row className="h-100 align-items-center">
       <Col className="text-center text-uppercase text-white">
@@ -20,4 +20,4 @@ const SwazilandHero = () => (
   </BaseSection>
 )
 
-export default SwazilandHero
+export default ZambiaHero

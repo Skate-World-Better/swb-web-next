@@ -1,7 +1,19 @@
 import { Helmet } from "react-helmet"
 
-function SEO({ description, lang, meta, title }: any) {
+interface MetaTag {
+  name?: string
+  property?: string
+  content: string
+}
 
+interface SEOProps {
+  title: string
+  description?: string
+  lang?: string
+  meta?: MetaTag[]
+}
+
+const SEO = ({ description = '', lang = 'en', meta = [], title }: SEOProps) => {
   const metaDescription = description || 'Non profit organization building skateparks in Africa'
 
   return (
@@ -44,15 +56,11 @@ function SEO({ description, lang, meta, title }: any) {
           name: `twitter:description`,
           content: metaDescription,
         },
-      ].concat(meta)}
+        ...meta,
+      ] satisfies MetaTag[]}
     />
   )
 }
 
-SEO.defaultProps = {
-  lang: `en`,
-  meta: [],
-  description: ``,
-}
-
+// eslint-disable-next-line react-refresh/only-export-components -- SEO is all-caps by convention, not detected as PascalCase
 export default SEO

@@ -30,52 +30,49 @@ const SkateparkSection = () => (
         </BaseSection.Header.Text>
         <Carousel>
            <Carousel.Item>
-             <Image src={Park1} className="d-block w-100 h-100"/>
+             <Image src={Park1} className="d-block w-100 h-100" loading="lazy"/>
           </Carousel.Item>
           <Carousel.Item>
-             <Image src={Park2} className="d-block w-100 h-100"/>
+             <Image src={Park2} className="d-block w-100 h-100" loading="lazy"/>
           </Carousel.Item>
           <Carousel.Item>
-            <Image src={Park3} className="d-block w-100 h-100"/>
+            <Image src={Park3} className="d-block w-100 h-100" loading="lazy"/>
           </Carousel.Item>
           <Carousel.Item>
-            <Image src={Park4} className="d-block w-100 h-100"/>
+            <Image src={Park4} className="d-block w-100 h-100" loading="lazy"/>
           </Carousel.Item>
           <Carousel.Item>
-            <Image src={Park5} className="d-block w-100 h-100"/>
+            <Image src={Park5} className="d-block w-100 h-100" loading="lazy"/>
           </Carousel.Item>
           <Carousel.Item>
-            <Image src={Park6} className="d-block w-100 h-100"/>
+            <Image src={Park6} className="d-block w-100 h-100" loading="lazy"/>
           </Carousel.Item>
           <Carousel.Item>
-            <Image src={Park7} className="d-block w-100 h-100"/>
+            <Image src={Park7} className="d-block w-100 h-100" loading="lazy"/>
           </Carousel.Item>
           <Carousel.Item>
-            <Image src={Park8} className="d-block w-100 h-100"/>
+            <Image src={Park8} className="d-block w-100 h-100" loading="lazy"/>
           </Carousel.Item>
           <Carousel.Item>
-            <Image src={Park9} className="d-block w-100 h-100"/>
+            <Image src={Park9} className="d-block w-100 h-100" loading="lazy"/>
           </Carousel.Item>
           <Carousel.Item>
-            <Image src={Park10} className="d-block w-100 h-100"/>
+            <Image src={Park10} className="d-block w-100 h-100" loading="lazy"/>
           </Carousel.Item>
           <Carousel.Item>
-            <Image src={Park11} className="d-block w-100 h-100"/>
+            <Image src={Park11} className="d-block w-100 h-100" loading="lazy"/>
           </Carousel.Item>
           <Carousel.Item>
-            <Image src={Park12} className="d-block w-100 h-100"/>
+            <Image src={Park12} className="d-block w-100 h-100" loading="lazy"/>
           </Carousel.Item>
           <Carousel.Item>
-            <Image src={Park13} className="d-block w-100 h-100"/>
+            <Image src={Park13} className="d-block w-100 h-100" loading="lazy"/>
           </Carousel.Item>
           <Carousel.Item>
-            <Image src={Park14} className="d-block w-100 h-100"/>
+            <Image src={Park14} className="d-block w-100 h-100" loading="lazy"/>
           </Carousel.Item>
           <Carousel.Item>
-            <Image src={Park14} className="d-block w-100 h-100"/>
-          </Carousel.Item>
-          <Carousel.Item>
-            <Image src={Park15} className="d-block w-100 h-100"/>
+            <Image src={Park15} className="d-block w-100 h-100" loading="lazy"/>
           </Carousel.Item>
         </Carousel>
         <BaseSection.Text className="pt-5 item-title">Coronation skatepark</BaseSection.Text>

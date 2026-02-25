@@ -1,5 +1,5 @@
 import Layout from '../../components/Layout'
-import SEO from '../../components/seo'
+import SEO from '../../components/SEO'
 
 import SwazilandPage from '../../components/pages/SwazilandPage/index.js'
 

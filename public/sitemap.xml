@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://skateworldbetter.org/</loc>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://skateworldbetter.org/mozambique</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://skateworldbetter.org/zambia</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://skateworldbetter.org/swaziland</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://skateworldbetter.org/ethiopia</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://skateworldbetter.org/lesotho</loc>
+    <priority>0.8</priority>
+  </url>
+</urlset>

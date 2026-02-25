@@ -5,48 +5,7 @@ import BaseSection from '../../../../BaseSection'
 import MediaCarousel from '../../../../Carousel'
 import ImageCard from '../../../../Card'
 
-import SwazilandOne from '../../../../../images/swaziland-1.jpg'
-import SwazilandTwo from '../../../../../images/swaziland-2.jpg'
-import SwazilandThree from '../../../../../images/swaziland-3.jpg'
-import SwazilandFour from '../../../../../images/swaziland-4.jpg'
-import SwazilandFive from '../../../../../images/swaziland-5.jpg'
-import SwazilandSix from '../../../../../images/swaziland-6.jpg'
-import SwazilandSeven from '../../../../../images/swaziland-7.jpg'
-import SwazilandEight from '../../../../../images/swaziland-8.jpg'
-import SwazilandNine from '../../../../../images/swaziland-9.jpg'
-import SwazilandTen from '../../../../../images/swaziland-10.jpg'
-
-const data = [{
-    imageSrc: SwazilandOne,
-  },
-  {
-    imageSrc: SwazilandTwo,
-  },
-  {
-    imageSrc: SwazilandThree,
-  },
-  {
-    imageSrc: SwazilandFour,
-  },
-  {
-    imageSrc: SwazilandFive,
-  },
-  {
-    imageSrc: SwazilandSix,
-  },
-  {
-    imageSrc: SwazilandSeven,
-  },
-  {
-    imageSrc: SwazilandEight,
-  },
-  {
-    imageSrc: SwazilandNine,
-  },
-  {
-    imageSrc: SwazilandTen,
-  }
-]
+import { swazilandGalleryData } from '../../../../../data/galleries/swaziland'
 
 const GallerySection = () => (
   <BaseSection className="py-4 py-lg-4">
@@ -63,12 +22,12 @@ const GallerySection = () => (
       </Col>
       <Col xs={12} lg={6}>
         <MediaCarousel
-          items={data}
+          items={swazilandGalleryData}
           config={{
             countLarge: 2,
             countDesktop: 2,
           }}
-          component={<ImageCard ratio="2:3" isExpandable={false} />}
+          renderItem={(data) => <ImageCard ratio="2:3" isExpandable={false} imageSrc={data.imageSrc as string} loading="eager" />}
         />
       </Col>
     </Row>

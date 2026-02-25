@@ -1,9 +1,28 @@
+import type { ReactNode } from 'react'
 import { useState } from 'react'
 import classNames from 'classnames'
 import Collapse from 'react-bootstrap/Collapse'
 import Image from 'react-bootstrap/Image'
 
 import style from './ImageCard.module.scss'
+
+type AspectRatio = '4:5' | '3:4' | '2:3' | '1:2' | '1:1'
+
+interface ImageCardProps {
+  imageSrc?: string
+  ratio?: AspectRatio
+  link?: string
+  title?: string
+  subtitle?: string
+  content?: ReactNode
+  isExpandable?: boolean
+  withBlur?: boolean
+  withGradient?: boolean
+  isLink?: boolean
+  removeShadow?: boolean
+  fullWidth?: boolean
+  loading?: 'lazy' | 'eager'
+}
 
 const ImageCard = ({
   imageSrc,
@@ -17,11 +36,12 @@ const ImageCard = ({
   withGradient,
   isLink,
   removeShadow,
-  fullWidth
-}: any) => {
+  fullWidth,
+  loading = 'lazy',
+}: ImageCardProps) => {
   const [ open, setOpen ] = useState(false)
 
-  const ratioToPadding = (ratioSring: any) => {
+  const ratioToPadding = (ratioSring?: AspectRatio) => {
     switch (ratioSring) {
       case '4:5':
         return '125%'
@@ -60,7 +80,7 @@ const ImageCard = ({
         [style.withBlur]: withBlur,
         [style.fullWidth]: fullWidth,
       })}>
-        <Image src={imageSrc} />
+        <Image src={imageSrc} loading={loading} alt={title || ''} />
       </div>
         <div
           className={classNames(style.cardContentContainer, {
@@ -89,7 +109,7 @@ const ImageCard = ({
                   <div>
                     {content && <p>{content}</p>}
                     {link && (
-                      <a href={link} target="_blank" rel="norefferer noopener" className="text-dark">
+                      <a href={link} target="_blank" rel="noreferrer noopener" className="text-dark">
                         Read more
                       </a>
                     )}
@@ -99,7 +119,7 @@ const ImageCard = ({
             </div>
           )}
         </div>
-      {isLink && link && <a href={link} target="_blank" rel="norefferer noopener" className={classNames('stretched-link')} />}
+      {isLink && link && <a href={link} target="_blank" rel="noreferrer noopener" className={classNames('stretched-link')} />}
     </div>
   )
 }

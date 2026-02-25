@@ -1,7 +1,15 @@
-const Underlined = ({children, className}: any) => (
-  <h5 className={className}>
+import type { ElementType, ReactNode } from 'react'
+
+interface UnderlinedProps {
+  children: ReactNode
+  className?: string
+  as?: ElementType
+}
+
+const Underlined = ({children, className, as: Tag = 'h5'}: UnderlinedProps) => (
+  <Tag className={className}>
     {children}
-  </h5>
+  </Tag>
 )
 
 Underlined.displayName = 'BaseSection.Header.Underlined'

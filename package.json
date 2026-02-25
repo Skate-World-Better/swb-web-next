@@ -10,9 +10,6 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@ant-design/icons": "^5.2.6",
-    "@types/react-router-dom": "^5.3.3",
-    "antd": "^5.9.0",
     "bootstrap": "^4.5.2",
     "classnames": "^2.3.2",
     "react": "^18.2.0",
@@ -21,9 +18,7 @@
     "react-feather": "^2.0.10",
     "react-helmet": "^6.1.0",
     "react-multi-carousel": "^2.8.4",
-    "react-router-dom": "^6.16.0",
-    "react-svg": "^16.1.24",
-    "vite-plugin-svgr": "^3.2.0"
+    "react-router-dom": "^6.16.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",
@@ -33,10 +28,13 @@
     "@typescript-eslint/parser": "^6.0.0",
     "@vitejs/plugin-react": "^4.0.3",
     "eslint": "^8.45.0",
+    "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
+    "prettier": "^3.8.1",
     "sass": "^1.67.0",
     "typescript": "^5.0.2",
-    "vite": "^4.4.5"
+    "vite": "^4.4.5",
+    "vite-plugin-svgr": "^3.2.0"
   }
 }

@@ -1,7 +1,7 @@
 import Layout from "../../components/Layout"
 
 import HomePage from '../../components/pages/HomePage'
-import SEO from "../../components/seo.tsx";
+import SEO from "../../components/SEO"
 
 const IndexPage = () => (
   <Layout>

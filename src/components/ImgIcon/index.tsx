@@ -15,7 +15,7 @@ const ImgIcon = (props: ImgIconProps) => {
     [styles.large]: props.size === 'large',
     [styles.medium]: props.size === 'medium',
     [styles.small]: props.size === 'small'
-  })} />
+  })} loading="lazy" />
 }
 
 export default ImgIcon

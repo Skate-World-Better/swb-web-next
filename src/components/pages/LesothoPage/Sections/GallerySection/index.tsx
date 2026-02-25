@@ -5,37 +5,7 @@ import BaseSection from '../../../../BaseSection'
 import MediaCarousel from '../../../../Carousel'
 import ImageCard from '../../../../Card'
 
-import Lesotho2 from '../../../../../images/lesotho-1.jpg'
-import Lesotho3 from '../../../../../images/lesotho-2.jpg'
-import Lesotho4 from '../../../../../images/lesotho-3.jpg'
-import Lesotho5 from '../../../../../images/lesotho-4.jpg'
-import Lesotho6 from '../../../../../images/lesotho-5.jpg'
-import Lesotho7 from '../../../../../images/lesotho-6.jpg'
-import Lesotho1 from '../../../../../images/lesotho-7.jpg'
-
-const data = [
-  {
-    imageSrc: Lesotho1,
-  },
-  {
-    imageSrc: Lesotho2,
-  },
-  {
-    imageSrc: Lesotho3,
-  },
-  {
-    imageSrc: Lesotho4,
-  },
-  {
-    imageSrc: Lesotho5,
-  },
-  {
-    imageSrc: Lesotho6,
-  },
-  {
-    imageSrc: Lesotho7,
-  },
-]
+import { lesothoGalleryData } from '../../../../../data/galleries/lesotho'
 
 const GallerySection = () => (
   <BaseSection className="py-4 py-lg-5">
@@ -51,12 +21,12 @@ const GallerySection = () => (
       </Col>
       <Col xs={12} lg={6}>
         <MediaCarousel
-          items={data}
+          items={lesothoGalleryData}
           config={{
             countLarge: 2,
             countDesktop: 2,
           }}
-          component={<ImageCard ratio="2:3" isExpandable={false} />}
+          renderItem={(data) => <ImageCard ratio="2:3" isExpandable={false} imageSrc={data.imageSrc as string} loading="eager" />}
         />
       </Col>
     </Row>

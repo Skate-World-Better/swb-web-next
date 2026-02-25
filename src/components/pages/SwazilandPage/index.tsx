@@ -1,17 +1,19 @@
-import {useEffect} from 'react'
-
-import SwazilandHero from './SwazilandHero'
+import CountryHero from '../../CountryHero'
 import Sections from './Sections'
 
-const SwazilandPage = () => {
-  useEffect(() => {
-    window.scrollTo({ top: 0 })
-  }, [])
+import heroImage from '../../../images/swaziland-trip.jpg'
 
-  return <>
-    <SwazilandHero/>
+const SwazilandPage = () => (
+  <>
+    <CountryHero
+      cityName="Mbabane"
+      countryName="Swaziland"
+      backgroundImage={heroImage}
+      backgroundPosition="center"
+      lightText={false}
+    />
     <Sections/>
   </>
-}
+)
 
 export default SwazilandPage

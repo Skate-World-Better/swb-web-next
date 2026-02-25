@@ -1,7 +1,6 @@
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
 import {ShoppingBag, Mail} from 'react-feather'
-import {Link} from "react-router-dom";
 import styles from './index.module.scss'
 import Button from '../../../Button'
 import BaseSection from '../../../BaseSection'
@@ -11,7 +10,7 @@ import {ReactComponent as AfricaMap} from "../../../../images/africa.svg"
 const HomeHero = () => (
   <section className="contours bg-whitend">
     <BaseSection className={styles.hero}>
-      <Row className="vh-100 align-items-center" style={{ maxHeight: '1440px', marginTop: '-10%' }}>
+      <Row className="vh-100 align-items-center" style={{ maxHeight: '1440px', marginTop: '-5%' }}>
         <Col sm={12} lg={6} className="text-center text-lg-left">
           <BaseSection.Header.Annotation className="mb-4 pt-5 pt-lg-0">
             Skate World Better
@@ -22,7 +21,7 @@ const HomeHero = () => (
           <BaseSection.Text className="mb-4 pb-5 pb-md-0">
             On a mission to support kids and young adults in Africa through
             skateboarding.<br/>
-            In close partnership with <Link to="https://www.bonidee.cz/?lang=en">Bonidee Skateparks</Link>.
+            In close partnership with <a href="https://www.bonidee.cz/?lang=en" target="_blank" rel="noreferrer noopener">Bonidee Skateparks</a>.
           </BaseSection.Text>
           <div className="d-flex flex-column flex-md-row justify-content-md-center justify-content-lg-start mt-lg-5">
             <Button
@@ -47,7 +46,6 @@ const HomeHero = () => (
         </Col>
         <Col sm={12} lg={6} className="d-none d-lg-block">
           <div style={{ position: 'relative' }}>
-            {/*<img src={AfricaMap} style={{ width: '100%', height: 'auto', fill: '#f7b70d' }} alt={AfricaMap}/>*/}
             <AfricaMap style={{ width: '100%', height: 'auto', fill: '#f7b70d' }} />
           </div>
         </Col>

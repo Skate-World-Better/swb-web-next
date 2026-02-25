@@ -30,34 +30,34 @@ const SkateparkSection = () => (
         </BaseSection.Header.Text>
         <Carousel>
            <Carousel.Item>
-             <Image src={ParkOne} className="d-block w-100 h-100"/>
+             <Image src={ParkOne} className="d-block w-100 h-100" loading="lazy"/>
           </Carousel.Item>
           <Carousel.Item>
-             <Image src={ParkTwo} className="d-block w-100 h-100"/>
+             <Image src={ParkTwo} className="d-block w-100 h-100" loading="lazy"/>
           </Carousel.Item>
           <Carousel.Item>
-             <Image src={ParkThree} className="d-block w-100 h-100"/>
+             <Image src={ParkThree} className="d-block w-100 h-100" loading="lazy"/>
           </Carousel.Item>
           <Carousel.Item>
-             <Image src={ParkFour} className="d-block w-100 h-100"/>
+             <Image src={ParkFour} className="d-block w-100 h-100" loading="lazy"/>
           </Carousel.Item>
           <Carousel.Item>
-            <Image src={ParkFive} className="d-block w-100 h-100"/>
+            <Image src={ParkFive} className="d-block w-100 h-100" loading="lazy"/>
           </Carousel.Item>
           <Carousel.Item>
-            <Image src={ParkSix} className="d-block w-100 h-100"/>
+            <Image src={ParkSix} className="d-block w-100 h-100" loading="lazy"/>
           </Carousel.Item>
           <Carousel.Item>
-            <Image src={ParkSeven} className="d-block w-100 h-100"/>
+            <Image src={ParkSeven} className="d-block w-100 h-100" loading="lazy"/>
           </Carousel.Item>
           <Carousel.Item>
-            <Image src={ParkEight} className="d-block w-100 h-100"/>
+            <Image src={ParkEight} className="d-block w-100 h-100" loading="lazy"/>
           </Carousel.Item>
           <Carousel.Item>
-            <Image src={ParkNine} className="d-block w-100 h-100"/>
+            <Image src={ParkNine} className="d-block w-100 h-100" loading="lazy"/>
           </Carousel.Item>
           <Carousel.Item>
-            <Image src={ParkTen} className="d-block w-100 h-100"/>
+            <Image src={ParkTen} className="d-block w-100 h-100" loading="lazy"/>
           </Carousel.Item>
         </Carousel>
         <BaseSection.Text className="pt-5 item-title">
