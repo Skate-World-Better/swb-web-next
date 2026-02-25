@@ -8,13 +8,14 @@ interface ButtonProps {
   className?: string
   link?: boolean
   href?: string
-  target?: string,
-  primary?: boolean,
-  secondary?: boolean,
-  complementary?: boolean,
-  light?: boolean,
-  accent?: boolean,
+  target?: string
+  primary?: boolean
+  secondary?: boolean
+  complementary?: boolean
+  light?: boolean
+  accent?: boolean
   block?: boolean
+  onClick?: () => void
 }
 
 const Button = ({
@@ -28,7 +29,8 @@ const Button = ({
   complementary,
   light,
   accent,
-  block
+  block,
+  onClick,
 }: ButtonProps) => {
   if (link) {
     return <a href={href} rel="noreferrer" target={target} className={classNames(className, {
@@ -44,7 +46,7 @@ const Button = ({
     </a>
   }
 
-  return <button type="button" className={classNames(className, {
+  return <button type="button" onClick={onClick} className={classNames(className, {
     [styles.btn]: true,
     [styles.btnAccent]: accent,
     [styles.btnPrimary]: primary,

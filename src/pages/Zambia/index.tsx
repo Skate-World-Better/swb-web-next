@@ -5,7 +5,7 @@ import ZambiaPage from '../../components/pages/ZambiaPage'
 
 const Zambia = () => (
   <Layout>
-    <SEO title="Zambia" />
+    <SEO title="Zambia — Mongu Skatepark" description="Learn about the SWB skatepark project in Mongu, Zambia." />
     <ZambiaPage />
   </Layout>
 )

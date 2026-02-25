@@ -5,7 +5,7 @@ import MozambiquePage from '../../components/pages/MozambiquePage'
 
 const Index = () => (
   <Layout>
-    <SEO title="Mozambique"/>
+    <SEO title="Mozambique — Maputo Skatepark" description="Learn about the SWB skatepark project in Maputo, Mozambique." />
     <MozambiquePage />
   </Layout>
 )

@@ -100,7 +100,7 @@ const SkateparkSection = () => (
             </BaseSection.Header.Text>
           </Col>
           <Col sm={12} lg={{span: 8, offset: 2 }} className={styles.videoWrapper}>
-            <iframe style={{ borderRadius: '8px' }} width="560" height="350" src="https://www.youtube.com/embed/rp-jLIltMgs" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen/>
+            <iframe title="Mozambique skatepark construction video" style={{ borderRadius: '8px' }} width="560" height="350" src="https://www.youtube.com/embed/rp-jLIltMgs" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen/>
           </Col>
         </Row>
       </BaseSection>

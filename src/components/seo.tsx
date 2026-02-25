@@ -13,8 +13,11 @@ interface SEOProps {
   meta?: MetaTag[]
 }
 
+const SITE_URL = 'https://skateworldbetter.org'
+const OG_IMAGE = `${SITE_URL}/android-chrome-512x512.png`
+
 const SEO = ({ description = '', lang = 'en', meta = [], title }: SEOProps) => {
-  const metaDescription = description || 'Non profit organization building skateparks in Africa'
+  const metaDescription = description || 'Non-profit organization building skateparks in Africa'
 
   return (
     <Helmet
@@ -30,7 +33,7 @@ const SEO = ({ description = '', lang = 'en', meta = [], title }: SEOProps) => {
         },
         {
           property: `og:title`,
-          content: title,
+          content: `${title} | Skate World Better`,
         },
         {
           property: `og:description`,
@@ -41,20 +44,28 @@ const SEO = ({ description = '', lang = 'en', meta = [], title }: SEOProps) => {
           content: `website`,
         },
         {
+          property: `og:site_name`,
+          content: `Skate World Better`,
+        },
+        {
+          property: `og:image`,
+          content: OG_IMAGE,
+        },
+        {
           name: `twitter:card`,
           content: `summary`,
         },
         {
-          name: `twitter:creator`,
-          content: '',
-        },
-        {
           name: `twitter:title`,
-          content: title,
+          content: `${title} | Skate World Better`,
         },
         {
           name: `twitter:description`,
           content: metaDescription,
+        },
+        {
+          name: `twitter:image`,
+          content: OG_IMAGE,
         },
         ...meta,
       ] satisfies MetaTag[]}

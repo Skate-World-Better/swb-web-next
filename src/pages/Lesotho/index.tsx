@@ -4,7 +4,7 @@ import LesothoPage from "../../components/pages/LesothoPage";
 
 const Lesotho = () => (
   <Layout>
-    <SEO title="Lesotho" />
+    <SEO title="Lesotho — Maseru Skatepark" description="Learn about the SWB skatepark project in Maseru, Lesotho." />
     <LesothoPage />
   </Layout>
 )
