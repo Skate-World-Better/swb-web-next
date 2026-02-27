@@ -8,26 +8,15 @@ A non-profit depends on organic search traffic and social sharing. Every page mu
 
 ---
 
-## Rendering Strategy
+## Current State
 
-### Server-side rendering or static generation is mandatory for SEO
+### Head management: `react-helmet-async`
 
-Client-side-only SPAs (current state) are invisible to most social media crawlers and can have degraded search engine indexing. The target:
+The project uses `react-helmet-async` with a `<HelmetProvider>` wrapping the app in `src/main.tsx`. The `<SEO>` component (`src/components/SEO.tsx`) provides per-page meta tags.
 
-| Approach | When to use |
-|---|---|
-| **Static Site Generation (SSG)** | Pages with content that rarely changes (all current pages). Build at deploy time. |
-| **Server-Side Rendering (SSR)** | Pages with dynamic content that must be fresh on every request. |
+### Rendering: client-side SPA
 
-If staying with Vite, use an SSG plugin (`vite-ssg`, `vite-plugin-ssr`). If migrating to Next.js, use the App Router with `generateStaticParams` for country pages.
-
-### `react-helmet` is insufficient
-
-`react-helmet` is not concurrent-mode safe (React 18) and only works client-side. Replacements:
-
-- **Next.js**: Use `generateMetadata()` in `layout.tsx` / `page.tsx` or the `<head>` export
-- **Vite SSG**: Use `@unhead/vue` or a custom head injection during pre-rendering
-- **Minimum viable**: Replace `react-helmet` with `react-helmet-async` (wraps in `<HelmetProvider>`)
+Currently a client-side SPA. Social media crawlers may not execute JavaScript, which limits meta tag visibility. Future improvement: add SSG via a Vite plugin or migrate to a framework with static generation.
 
 ---
 
@@ -67,9 +56,16 @@ Every page must have all of these:
 <meta name="twitter:site" content="@skateworldbetter" />
 ```
 
-### What's missing today
+### What's currently implemented
 
-The current `seo.tsx` is missing: `og:image`, `og:url`, `og:site_name`, `twitter:image`, `canonical`. The `twitter:creator` is an empty string. `twitter:card` is `summary` instead of `summary_large_image`.
+The `SEO` component (`src/components/SEO.tsx`) sets: `title` (with `%s | Skate World Better` template), `description`, `og:title`, `og:description`, `og:type`, `og:site_name`, `og:image` (generic 512px icon), `twitter:card` (summary), `twitter:title`, `twitter:description`, `twitter:image`.
+
+### Remaining improvements
+
+- Add `canonical` URL per page
+- Add per-page OG images (1200x630px) instead of the generic icon
+- Upgrade `twitter:card` to `summary_large_image`
+- Add `og:url` per page
 
 ---
 
@@ -78,11 +74,11 @@ The current `seo.tsx` is missing: `og:image`, `og:url`, `og:site_name`, `twitter
 ### Titles must be descriptive and unique
 
 ```tsx
-// Bad — current pattern
+// Adequate for now — current pattern
 <SEO title="Ethiopia" />
 // Produces: "Ethiopia | Skate World Better"
 
-// Good — descriptive, includes location and purpose
+// Better — descriptive, includes location and purpose
 <SEO title="Ethiopia — Addis Ababa Skatepark Project" />
 // Produces: "Ethiopia — Addis Ababa Skatepark Project | Skate World Better"
 ```
@@ -151,17 +147,6 @@ Add to the root layout or home page:
 </script>
 ```
 
-### WebSite schema (for sitelinks search box)
-
-```json
-{
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "Skate World Better",
-  "url": "https://skateworldbetter.org"
-}
-```
-
 ---
 
 ## Technical SEO
@@ -196,8 +181,6 @@ List all public pages with `lastmod` dates:
 </urlset>
 ```
 
-If using Next.js, generate this with `app/sitemap.ts`. If using Vite, create a build script or use `vite-plugin-sitemap`.
-
 ### PWA Manifest
 
 The `site.webmanifest` must have valid `name` and `short_name`:
@@ -230,14 +213,14 @@ The `site.webmanifest` must have valid `name` and `short_name`:
 /                  → Home
 /zambia            → Country page
 /mozambique        → Country page
-/eswatini          → Consider renaming from /swaziland to the official name
+/swaziland         → Country page (consider renaming to /eswatini)
 /ethiopia          → Country page
 /lesotho           → Country page
 ```
 
 ### Trailing slashes — pick one convention and enforce it
 
-If using Netlify, configure `trailingSlash` in `netlify.toml`. If using Next.js, configure in `next.config.js`.
+If using Netlify, configure `trailingSlash` in `netlify.toml`.
 
 ---
 
@@ -253,6 +236,8 @@ If using Netlify, configure `trailingSlash` in `netlify.toml`. If using Next.js,
 ---
 
 ## SEO Component Interface (Target)
+
+The current `SEO` component could be enhanced:
 
 ```tsx
 interface SEOProps {

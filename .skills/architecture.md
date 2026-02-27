@@ -10,56 +10,93 @@ Architecture should eliminate duplication, enforce constraints through structure
 
 ## Project Structure
 
-### Target directory layout
+### Current directory layout
 
 ```
 src/
-├── app/                    # Route entry points (pages)
-│   ├── layout.tsx          # Root layout (header, footer, error boundary)
-│   ├── page.tsx            # Home page
-│   ├── [country]/          # Dynamic country pages (or individual route files)
-│   │   └── page.tsx
-│   └── not-found.tsx       # 404
+├── pages/                  # Route entry points
+│   ├── Home/
+│   │   └── index.tsx       # Home route: Layout + SEO + HomePage
+│   ├── Zambia/
+│   │   └── index.tsx       # Country route: Layout + SEO + CountryPage
+│   ├── Mozambique/
+│   ├── Swaziland/
+│   ├── Ethiopia/
+│   └── Lesotho/
 ├── components/
 │   ├── ui/                 # Generic, reusable UI primitives
-│   │   ├── Button/
-│   │   ├── Section/
-│   │   ├── Card/
-│   │   ├── Carousel/
-│   │   └── Hero/
-│   └── layout/             # App shell components
-│       ├── Header/
-│       └── Footer/
-├── data/                   # Static content (no rendering logic)
-│   ├── countries.ts        # Country config: slug, title, hero image, meta
-│   ├── gallery.ts          # Gallery items per country
-│   ├── partners.ts         # Partner logos and links
-│   ├── press.ts            # Press coverage
-│   └── timeline.ts         # Timeline events
-├── images/                 # Image assets (imported as modules)
-│   ├── countries/
-│   │   ├── zambia/
-│   │   ├── mozambique/
-│   │   └── ...
+│   │   ├── Section.tsx
+│   │   ├── Grid.tsx
+│   │   ├── Stack.tsx
+│   │   ├── Heading.tsx
+│   │   ├── Text.tsx
+│   │   ├── Highlight.tsx
+│   │   ├── Image.tsx
+│   │   ├── VideoEmbed.tsx
+│   │   ├── ResultCard.tsx
+│   │   ├── ResultsGrid.tsx
+│   │   └── index.ts        # Barrel export
+│   ├── sections/           # Shared data-driven section components
+│   │   ├── CountryAboutSection.tsx
+│   │   ├── CountryWhySection.tsx
+│   │   └── CountryGallerySection.tsx
+│   ├── pages/
+│   │   ├── CountryPage.tsx              # Data-driven country template
+│   │   ├── CountryPage/skateparks/      # Per-country skatepark sections
+│   │   │   ├── ZambiaSkateparkSection.tsx
+│   │   │   ├── MozambiqueSkateparkSection.tsx
+│   │   │   ├── SwazilandSkateparkSection.tsx
+│   │   │   ├── EthiopiaSkateparkSection.tsx
+│   │   │   └── LesothoSkateparkSection.tsx
+│   │   └── HomePage/
+│   │       ├── HomeHero/
+│   │       └── Sections/               # Unique home page sections
+│   │           ├── FactsSection/
+│   │           ├── TimelineSection/
+│   │           ├── MomentsSection/
+│   │           ├── PressSection/
+│   │           ├── ProjectsSection/
+│   │           └── PartnersSections/
+│   ├── Button/
+│   ├── Carousel/
+│   ├── Card/
+│   ├── CountryHero/
+│   ├── Header/
+│   ├── Footer/
+│   ├── Layout/
+│   ├── SEO.tsx
+│   └── ...
+├── data/                   # Static content (separated from rendering)
+│   └── countries/
+│       ├── types.ts        # Shared TypeScript interfaces
+│       ├── zambia.tsx
+│       ├── mozambique.tsx
+│       ├── swaziland.tsx
+│       ├── ethiopia.tsx
+│       └── lesotho.tsx
+├── images/                 # Image assets (imported as ES modules)
 │   ├── icons/
-│   └── logos/
-├── styles/                 # Global styles and design tokens
-│   └── globals.css         # CSS custom properties, base resets
-├── lib/                    # Utility functions (if needed)
-│   └── cn.ts               # classnames/clsx utility
-└── types/                  # Shared TypeScript types (only if used across boundaries)
-    └── index.ts
+│   └── swb_logos/
+├── assets/
+│   └── backgrounds/        # SVG background patterns
+├── styles/
+│   └── globals.css         # Design tokens + base typography + component utilities
+├── lib/
+│   └── cn.ts               # clsx + tailwind-merge utility
+└── App.tsx                 # Route definitions
 ```
 
 ### Placement rules
 
 | Kind of thing | Where it goes | Why |
 |---|---|---|
-| Page entry (route) | `src/app/` | One directory = one route. Clear URL-to-file mapping. |
-| Reusable UI component | `src/components/ui/` | Used by 2+ pages or in multiple contexts. |
-| App shell (header/footer) | `src/components/layout/` | Rendered once in root layout. |
-| Static content arrays | `src/data/` | Separated from rendering. Easy to update, type-check, reuse. |
-| Shared TypeScript types | `src/types/` | Only for types used across unrelated modules. Component-specific types stay in the component file. |
+| Route entry (page) | `src/pages/` | One directory = one route. Clear URL-to-file mapping. |
+| Reusable UI primitive | `src/components/ui/` | Used by 2+ pages or in multiple contexts. Encapsulates Tailwind patterns. |
+| Shared data-driven section | `src/components/sections/` | Reusable across country pages, receives data via props. |
+| Per-country custom section | `src/components/pages/CountryPage/skateparks/` | Too different between countries to share a template. |
+| App shell (header/footer) | `src/components/` | Rendered once in the Layout wrapper. |
+| Static content data | `src/data/` | Separated from rendering. Easy to update, type-check, reuse. |
+| Shared TypeScript types | `src/data/countries/types.ts` | Types for the data layer. Component-specific types stay in their component file. |
 | Utility functions | `src/lib/` | Pure functions with no React dependency. |
 | Images | `src/images/` grouped by topic | Co-locate by content (country, icon set), not by component. |
 
@@ -73,43 +110,63 @@ src/
 
 ## Data-Driven Architecture
 
-### The country page problem
+### Country pages — one template, data-driven
 
-This project has 5 country pages with nearly identical structure: Hero + About + Gallery + Skatepark sections. Each is copy-pasted into its own component tree. This is the single largest source of duplication.
-
-### Target: one template, data-driven
+The project has 5 country pages that share a common structure. This is solved with a data-driven template:
 
 ```tsx
-// src/data/countries.ts
-import type { CountryConfig } from '@/types'
-
-export const countries = [
-  {
-    slug: 'zambia',
-    name: 'Zambia',
-    title: 'Zambia — Lusaka Skatepark | Skate World Better',
-    description: 'Building a skatepark community in Lusaka, Zambia.',
-    heroImage: () => import('@/images/countries/zambia/hero.jpg'),
-    sections: ['about', 'skatepark', 'gallery'],
-  },
-  // ...
-] satisfies CountryConfig[]
+// src/data/countries/zambia.tsx — content data
+export const zambiaData: CountryPageData = {
+  hero: { cityName: 'Mongu', countryName: 'Zambia', backgroundImage: heroImage },
+  about: { heading: <>...</>, description: <>...</>, image: img, results: [...] },
+  why: { heading: <>...</>, description: <>...</> },
+  gallery: { description: <>...</>, images: [...] },
+}
 ```
 
 ```tsx
-// src/app/[country]/page.tsx (or equivalent route component)
-const CountryPage = ({ country }: { country: CountryConfig }) => (
+// src/pages/Zambia/index.tsx — route entry
+const Zambia = () => (
+  <Layout>
+    <SEO title="Zambia" />
+    <CountryPage data={zambiaData} skateparkSection={<ZambiaSkateparkSection />} />
+  </Layout>
+)
+```
+
+```tsx
+// src/components/pages/CountryPage.tsx — template
+const CountryPage = ({ data, skateparkSection }: CountryPageProps) => (
   <>
-    <SEO title={country.title} description={country.description} />
-    <Hero title={country.name} backgroundImage={country.heroImage} />
-    {country.sections.map(section => (
-      <CountrySection key={section} type={section} country={country.slug} />
-    ))}
+    <CountryHero {...data.hero} />
+    <CountryAboutSection data={data.about} />
+    <CountryWhySection data={data.why} />
+    {skateparkSection}
+    <CountryGallerySection data={data.gallery} />
   </>
 )
 ```
 
-Adding a new country should require: one entry in `countries.ts`, the images, and the content data. No new component files.
+### Adding a new country
+
+To add a new country page:
+1. Create `src/data/countries/{country}.tsx` with the content data
+2. Create `src/components/pages/CountryPage/skateparks/{Country}SkateparkSection.tsx` for the unique skatepark section
+3. Create `src/pages/{Country}/index.tsx` route entry
+4. Add the route to `src/App.tsx`
+
+The shared sections (About, Why, Gallery) require no new component files — only data.
+
+### Why skatepark sections are not shared
+
+The skatepark sections vary significantly between countries:
+- Zambia: single carousel + park name story
+- Mozambique: two carousels (Maxaquene + Khongolote) + video embed
+- Swaziland: single carousel + descriptive text
+- Ethiopia: single carousel + park info
+- Lesotho: descriptive text only (no carousel — project planned, not completed)
+
+These stay as individual section files using UI primitives.
 
 ---
 
@@ -118,25 +175,28 @@ Adding a new country should require: one entry in `countries.ts`, the images, an
 ### Import direction
 
 ```
-app/ (pages)
+pages/
   → components/ui/
-  → components/layout/
+  → components/sections/
+  → components/pages/
   → data/
-  → types/
+
+components/sections/
+  → components/ui/
+  → data/ (types only)
+  (receives data via props, never imports data files directly)
 
 components/ui/
-  → types/
   → lib/
-  (never imports from app/, data/, or other ui/ siblings unless composing)
+  (never imports from pages/, data/, or sections/)
 
 data/
   → images/
-  → types/
-  (never imports from components/ or app/)
+  → data/countries/types.ts
+  (never imports from components/ or pages/)
 
 lib/
-  → types/
-  (never imports from React, components/, data/, or app/)
+  (never imports from React, components/, data/, or pages/)
 ```
 
 ### No circular dependencies
@@ -153,7 +213,7 @@ Barrel files that re-export everything from a directory cause bundler issues and
 
 ### Path aliases
 
-Configure `@/` in both `vite.config.ts` and `tsconfig.json`:
+`@/` is configured in both `vite.config.ts` and `tsconfig.json`:
 
 ```ts
 // vite.config.ts
@@ -240,3 +300,5 @@ Before making structural changes:
 - [ ] Duplication is reduced, not increased
 - [ ] Import paths use `@/` aliases
 - [ ] No environment-specific values hardcoded in source
+- [ ] Country page changes reuse the `CountryPage` template pattern
+- [ ] New UI patterns use existing primitives from `src/components/ui/`

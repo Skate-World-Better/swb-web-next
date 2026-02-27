@@ -55,7 +55,7 @@ Do not put prop interfaces in a shared `types/` file unless they are genuinely u
 When a component behaves differently based on a mode or variant, use a discriminated union — not a bag of optional booleans.
 
 ```tsx
-// Bad — this project's current pattern
+// Bad — boolean bag pattern (still exists in Button component)
 interface ButtonProps {
   primary?: boolean
   secondary?: boolean
@@ -129,7 +129,7 @@ interface SectionProps extends React.ComponentPropsWithoutRef<'section'> {
 }
 
 const Section = ({ variant = 'default', children, className, ...rest }: SectionProps) => (
-  <section className={cn(styles.section, styles[variant], className)} {...rest}>
+  <section className={cn('mx-auto max-w-[1140px] px-4', variant === 'wide' && 'max-w-none', className)} {...rest}>
     {children}
   </section>
 )

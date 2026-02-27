@@ -58,32 +58,25 @@ Before adding any dependency, verify it will actually be imported. Before shippi
 npx depcheck
 ```
 
-Current unused deps that must be removed: `antd`, `@ant-design/icons`, `react-svg`, `@types/react-router-dom`.
-
 ### Tree-shaking awareness
 
-Import only what you use:
-
-```tsx
-// Bad — may pull in the entire library depending on bundler config
-import { Container, Row, Col, Image, Collapse, Navbar } from 'react-bootstrap'
-
-// Good — direct module imports (guaranteed tree-shakeable)
-import Container from 'react-bootstrap/Container'
-import Row from 'react-bootstrap/Row'
-```
+Import only what you use. Prefer named imports from well-tree-shakeable libraries.
 
 ---
 
 ## Images
 
-### Every `<img>` below the fold must have `loading="lazy"`
+### The `Image` primitive handles lazy loading
+
+The `src/components/ui/Image.tsx` primitive applies `loading="lazy"` and `decoding="async"` by default. Use it for all content images:
 
 ```tsx
-<img src={imageSrc} alt={alt} loading="lazy" />
+import { Image } from '@/components/ui'
+
+<Image src={photoSrc} alt="Children skating" />
 ```
 
-The hero image (above the fold) should NOT be lazy-loaded — it should load immediately.
+For hero images (above the fold), use a raw `<img>` without `loading="lazy"` to ensure immediate loading.
 
 ### Responsive images with `srcSet` and `sizes`
 
@@ -101,7 +94,7 @@ Serve appropriate image sizes for each viewport:
 
 ### Image format: WebP with JPEG fallback
 
-Use build-time image optimization (e.g., `vite-imagetools` or `sharp` script) to generate WebP/AVIF variants. If using Next.js, `<Image>` handles this automatically.
+Use build-time image optimization (e.g., `vite-imagetools` or `sharp` script) to generate WebP/AVIF variants.
 
 ### Width and height to prevent layout shift
 
@@ -122,16 +115,7 @@ Or in CSS:
 
 ### No duplicate image imports
 
-If the same image is used on multiple pages (e.g., Zambia photos on both home and country pages), import it from a single canonical location:
-
-```tsx
-// src/data/gallery.ts — single source
-import zambia1 from '@/images/countries/zambia/1.jpg'
-export const zambiaGallery = [{ imageSrc: zambia1, alt: '...' }, ...]
-
-// Both pages import from the same data file
-import { zambiaGallery } from '@/data/gallery'
-```
+If the same image is used on multiple pages, import it from a single canonical location. Country images are imported in `src/data/countries/{country}.tsx` and in gallery data files — keep them consistent.
 
 ---
 
@@ -157,25 +141,13 @@ Already handled by `&display=swap` in the Google Fonts URL. Never remove this �
 
 ## CSS
 
-### Only import what you use
+### Tailwind CSS purges unused utilities
 
-If staying with a CSS framework, import individual modules rather than the entire library:
+Tailwind CSS automatically purges unused utilities in production builds. This keeps CSS bundle size minimal. Ensure `content` paths in `tailwind.config.js` cover all files that use Tailwind classes.
 
-```scss
-// Bad — imports everything (156KB CSS)
-@import 'bootstrap/scss/bootstrap';
+### Don't import CSS you don't use
 
-// Good — import only used modules
-@import 'bootstrap/scss/functions';
-@import 'bootstrap/scss/variables';
-@import 'bootstrap/scss/mixins';
-@import 'bootstrap/scss/grid';
-@import 'bootstrap/scss/navbar';
-```
-
-### Prefer CSS that purges unused rules
-
-Tailwind CSS automatically purges unused utilities in production. If using a different approach, ensure dead CSS is removed at build time.
+Legacy SCSS modules should only be kept for components that genuinely need them (e.g., complex animations). Remove empty or near-empty SCSS modules.
 
 ---
 
@@ -183,22 +155,13 @@ Tailwind CSS automatically purges unused utilities in production. If using a dif
 
 ### Defer or lazy-load non-critical embeds
 
-YouTube iframes and Vimeo players should not load until the user scrolls to them:
+The `VideoEmbed` component (`src/components/ui/VideoEmbed.tsx`) wraps iframes in a responsive 16:9 container with `loading="lazy"`. Use it for all video embeds:
 
 ```tsx
-// Use native lazy loading for iframes
-<iframe
-  src={videoUrl}
-  title={title}
-  loading="lazy"
-  width="560"
-  height="315"
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-  allowFullScreen
-/>
+<VideoEmbed src={videoUrl} title="Documentary about the project" />
 ```
 
-Or, for even better performance, show a thumbnail with a play button and load the iframe only on click (facade pattern).
+For even better performance, consider showing a thumbnail with a play button and loading the iframe only on click (facade pattern).
 
 ---
 
@@ -222,9 +185,9 @@ Target metrics for this marketing site:
 Before shipping any change:
 
 - [ ] New routes are lazy-loaded
-- [ ] All below-fold images have `loading="lazy"`
+- [ ] All below-fold images use the `Image` primitive (or have `loading="lazy"`)
 - [ ] Images have `width`/`height` or CSS `aspect-ratio` set
 - [ ] No new dependencies added without checking bundle impact
 - [ ] No duplicate image imports across files
-- [ ] Iframes are lazy-loaded
+- [ ] Iframes use the `VideoEmbed` component (or have `loading="lazy"`)
 - [ ] `npm run build` output shows reasonable chunk sizes

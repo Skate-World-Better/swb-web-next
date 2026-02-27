@@ -1,4 +1,5 @@
 import type { CountryGalleryData } from '@/data/countries/types'
+import { renderRichText } from '@/lib/renderRichText'
 import Section from '../ui/Section'
 import Grid from '../ui/Grid'
 import MediaCarousel from '../Carousel'
@@ -13,8 +14,8 @@ const CountryGallerySection = ({ data }: CountryGallerySectionProps) => (
     <Grid cols={2} gap="md">
       <div>
         <h6 className="pb-2 sub">{data.annotation ?? 'Photogallery'}</h6>
-        <h3 className="mb-12">{data.heading}</h3>
-        <p className="py-6 lg:mr-12">{data.description}</p>
+        <h3 className="mb-12">{renderRichText(data.heading)}</h3>
+        <p className="py-6 lg:mr-12">{renderRichText(data.description)}</p>
       </div>
       <div>
         <MediaCarousel

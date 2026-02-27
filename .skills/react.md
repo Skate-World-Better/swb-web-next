@@ -10,55 +10,50 @@ Components should be small, composable, and do one thing well. Separate data fro
 
 ## Component Design
 
-### Composition over configuration
+### Use UI primitives for layout
 
-Prefer composable children over deeply configurable prop APIs:
+The project has a set of layout primitives in `src/components/ui/` that should be used instead of raw Tailwind utility strings for common patterns:
 
 ```tsx
-// Bad — component does too many things via props
-<BaseSection
-  headerAnnotation="Our Projects"
-  headerTitle="Zambia"
-  headerUnderlined="Lusaka Skatepark"
-  text="We built a skatepark..."
-/>
-
-// Good — composable, flexible, readable
-<Section>
-  <Section.Header>
-    <Section.Eyebrow>Our Projects</Section.Eyebrow>
-    <Section.Title>Zambia</Section.Title>
-    <Section.Subtitle>Lusaka Skatepark</Section.Subtitle>
-  </Section.Header>
-  <Section.Body>
-    <p>We built a skatepark...</p>
-  </Section.Body>
+// Good — uses primitives
+<Section spacing="md">
+  <Grid cols={2}>
+    <Stack gap="sm">
+      <Heading level={3}>Title</Heading>
+      <Text>Description</Text>
+    </Stack>
+    <Image src={photo} alt="Photo description" />
+  </Grid>
 </Section>
+
+// Bad — raw utility strings for a pattern that has a primitive
+<section className="mx-auto max-w-[1140px] px-4 py-6 lg:py-12">
+  <div className="flex flex-wrap">
+    <div className="w-full lg:w-1/2">...</div>
+  </div>
+</section>
 ```
 
-### Compound components must be renderable at every level
+### Data-driven sections over copy-paste
 
-If `Section.Header` is a namespace, it must also be a valid React component. Never attach sub-components to a plain object.
+Country page sections receive data via props. Never copy a section component to make a slightly different version — parameterize it:
 
 ```tsx
-// Bad — Header is not renderable
-BaseSection.Header = { Base, Annotation, Text }
+// Good — data-driven, one component serves all countries
+<CountryAboutSection data={zambiaData.about} />
 
-// Good — Header is both a component and a namespace
-const Header = ({ children, ...props }: HeaderProps) => (
-  <header {...props}>{children}</header>
-)
-Header.Eyebrow = Eyebrow
-Header.Title = Title
-Section.Header = Header
+// Bad — per-country section component with hardcoded content
+<ZambiaAboutSection />
 ```
+
+The exception is skatepark sections, which vary too significantly between countries to share a template.
 
 ### No `React.cloneElement`
 
 This is a legacy escape hatch. Use render props or component props instead:
 
 ```tsx
-// Bad — current pattern in Carousel
+// Bad — current pattern in Carousel (legacy, to be fixed)
 {React.cloneElement(component, { ...data })}
 
 // Good — render prop
@@ -109,7 +104,7 @@ Never use array index as a React key for lists that can be reordered, filtered, 
 ### No side-effect hacks — use the framework
 
 ```tsx
-// Bad — duplicated in every page component in this project
+// Bad — duplicated scroll reset
 useEffect(() => {
   window.scrollTo({ top: 0 })
 }, [])
@@ -127,20 +122,6 @@ function RootLayout() {
 }
 ```
 
-### Custom hooks for shared logic
-
-When multiple components need the same logic, extract it:
-
-```tsx
-// If we keep the SPA (not Next.js), scroll restoration as a hook:
-function useScrollToTop() {
-  const { pathname } = useLocation()
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'instant' })
-  }, [pathname])
-}
-```
-
 ### Keep effects minimal
 
 Effects should handle synchronization with external systems, not derived state. If you can compute it during render, do so.
@@ -154,7 +135,7 @@ Effects should handle synchronization with external systems, not derived state. 
 Never use React Router's `<Link>` for external URLs. It triggers a full SPA remount for no benefit.
 
 ```tsx
-// Bad — current pattern
+// Bad
 <Link to="https://external-site.com">Visit</Link>
 
 // Good
@@ -246,53 +227,45 @@ function App() {
 
 ## File Organization
 
-### One component per file, co-located with its styles
+### Component file patterns
 
+Simple components: single `.tsx` file in `src/components/ui/`
 ```
-src/components/Hero/
-  index.tsx            # Component
-  Hero.module.scss     # Styles (or Hero.module.css with Tailwind @apply)
-  Hero.test.tsx        # Tests
+src/components/ui/
+  Section.tsx
+  Grid.tsx
+  Heading.tsx
+```
+
+Components with co-located styles (when SCSS module is needed):
+```
+src/components/Header/
+  index.tsx
+  index.module.scss
 ```
 
 ### Separate data from components
 
-Components should receive data via props. Static content arrays belong in `src/data/`:
-
-```
-src/data/
-  gallery.ts           # Gallery items for all countries
-  partners.ts          # Partner logos and links
-  press.ts             # Press coverage items
-  countries.ts         # Country page configuration (hero image, title, slug, sections)
-```
+Components should receive data via props. Static content belongs in `src/data/`:
 
 ```tsx
-// src/data/partners.ts
-import type { Partner } from '@/types'
-import czechAidLogo from '@/images/icons/czech-aid.png'
-
-export const partners = [
-  { name: 'Czech Aid', imageSrc: czechAidLogo, link: 'https://www.czechaid.cz/', alt: 'Czech Aid logo' },
+// src/data/countries/zambia.tsx — data only
+export const zambiaData: CountryPageData = {
+  hero: { cityName: 'Mongu', countryName: 'Zambia', backgroundImage: heroImage },
+  about: { ... },
   // ...
-] satisfies Partner[]
+}
 ```
 
-### Reduce duplication with data-driven templates
-
-The five country pages share ~95% identical structure. Use a single template:
-
 ```tsx
-// src/components/CountryPage/index.tsx
-interface CountryPageProps {
-  hero: { title: string; backgroundImage: string }
-  sections: React.ReactNode
-}
+// src/pages/Zambia/index.tsx — rendering only
+import { zambiaData } from '@/data/countries/zambia'
+import CountryPage from '@/components/pages/CountryPage'
 
-const CountryPage = ({ hero, sections }: CountryPageProps) => (
+const Zambia = () => (
   <Layout>
-    <Hero {...hero} />
-    {sections}
+    <SEO title="Zambia" />
+    <CountryPage data={zambiaData} skateparkSection={<ZambiaSkateparkSection />} />
   </Layout>
 )
 ```
@@ -311,3 +284,4 @@ Before considering a React component complete:
 - [ ] Component is a single responsibility — data is passed in, not hardcoded
 - [ ] No `useEffect` for things the framework or platform handles natively
 - [ ] `key` props use stable identifiers, not array indices
+- [ ] Uses UI primitives from `src/components/ui/` for layout patterns

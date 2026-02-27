@@ -29,7 +29,7 @@ Accessibility is not a feature; it's a quality of the implementation. A non-prof
 - **Button** (`<button>`): Triggers an in-page action. Has no URL. Can't be bookmarked.
 
 ```tsx
-// Bad — current carousel pattern
+// Bad — div as button
 <div className={styles.carouselButton} onClick={previous}>
   <ArrowLeft size={40} />
 </div>
@@ -41,7 +41,7 @@ Accessibility is not a feature; it's a quality of the implementation. A non-prof
 ```
 
 ```tsx
-// Bad — current partner logo pattern
+// Bad — div used for navigation
 <div onClick={() => window.location.href = logo.link}>
   <img src={logo.imageSrc} />
 </div>
@@ -78,12 +78,14 @@ Without an explicit `type`, a `<button>` inside a `<form>` defaults to `type="su
 | Background decoration | Use CSS `background-image`, not `<img>` |
 
 ```tsx
-// Bad — current pattern (no alt anywhere)
-<Image src={imageSrc} />
-<img src={logo.imageSrc} className={styles.logoImage} />
+// Bad — no alt text
+<img src={imageSrc} />
 
-// Good
-<img src={imageSrc} alt="Skatepark under construction in Maputo" loading="lazy" />
+// Good — the Image primitive accepts alt as a prop
+import { Image } from '@/components/ui'
+<Image src={imageSrc} alt="Skatepark under construction in Maputo" />
+
+// Good — raw img with alt
 <img src={logo.imageSrc} alt={`${partner.name} logo`} />
 ```
 
@@ -126,21 +128,15 @@ h1: Skate World Better — Zambia
 Never choose a heading level based on how it looks. Style headings with CSS classes:
 
 ```tsx
-// Bad — current pattern: <h6> used because it's small
-<BaseSection.Header.Annotation>Our Partners</BaseSection.Header.Annotation>
-// renders <h6> — wrong semantically
+// Bad — heading level chosen for visual size
+<h6>Our Partners</h6>  // h6 just because it's small — wrong semantically
 
 // Good — correct heading level, styled independently
-<h2 className={styles.eyebrow}>Our Partners</h2>
-```
+<h2 className="text-sm font-semibold uppercase tracking-wide">Our Partners</h2>
 
-```css
-.eyebrow {
-  font-size: var(--font-size-xs);
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-}
+// Good — use the Heading primitive with the appropriate level
+import { Heading } from '@/components/ui'
+<Heading level={2}>Our Partners</Heading>
 ```
 
 ---
@@ -198,11 +194,14 @@ When content changes dynamically (e.g., carousel slide change, modal open), mana
 
 ### Always provide a `title`
 
-```tsx
-// Bad
-<iframe src="https://www.youtube.com/embed/xyz" allowFullScreen />
+The `VideoEmbed` component (`src/components/ui/VideoEmbed.tsx`) requires a `title` prop. Use it for all video embeds:
 
-// Good
+```tsx
+// Good — VideoEmbed handles responsive wrapper + title
+import { VideoEmbed } from '@/components/ui'
+<VideoEmbed src="https://www.youtube.com/embed/xyz" title="Documentary: Building Skateparks in Mozambique" />
+
+// If using raw iframe, always include title
 <iframe
   src="https://www.youtube.com/embed/xyz"
   title="Documentary: Building Skateparks in Mozambique"
@@ -234,8 +233,8 @@ If a state or category is indicated by color, also provide a text label or icon.
 ### Always use `rel="noreferrer noopener"` with `target="_blank"`
 
 ```tsx
-// Bad — current project has a typo everywhere
-rel="norefferer noopener"  // "norefferer" is not a valid token
+// Bad — misspelled (browser ignores the invalid token)
+rel="norefferer noopener"
 
 // Good
 rel="noreferrer noopener"

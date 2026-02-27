@@ -1,36 +1,40 @@
 # Skill: Styling & CSS
 
-> Use this skill when writing styles, migrating from Bootstrap, working with design tokens, or reviewing CSS/SCSS.
+> Use this skill when writing styles, working with Tailwind utilities, design tokens, or reviewing CSS.
 
 ## Core Principle
 
-Styles should have a single source of truth for every design decision (color, spacing, typography). Never fight the cascade with `!important` — if you need it, the architecture is wrong.
+Styles should have a single source of truth for every design decision (color, spacing, typography). Use Tailwind utility classes for layout and visual properties. Use CSS custom properties as the design token layer. Never fight the cascade with `!important` — if you need it, the architecture is wrong.
 
 ---
 
-## Current State (Bootstrap migration context)
+## Current Stack
 
-The project currently uses Bootstrap 4 (EOL) via SCSS with 21 `!important` declarations, ~30 hardcoded hex values, and three conflicting naming conventions. The target is to drop Bootstrap entirely and move to a utility-first approach with CSS custom properties as the token layer.
-
-During migration, you may encounter Bootstrap classes (`Row`, `Col`, `Container`, `d-flex`, `py-4`, etc.) and `react-bootstrap` components. Replace them with the new system incrementally — don't mix old and new in the same component.
+- **Tailwind CSS 3** for utility-first styling
+- **CSS custom properties** as the design token layer (defined in `src/styles/globals.css`)
+- **`cn()` utility** (`src/lib/cn.ts`) — wraps `clsx` + `tailwind-merge` for conditional class composition
+- **UI primitives** (`src/components/ui/`) — encapsulate repeated Tailwind patterns into reusable components
+- **A few legacy SCSS modules** remain for complex animations (e.g., `PartnersSection/index.module.scss`)
 
 ---
 
 ## Design Tokens
 
-### Define tokens as CSS custom properties
+### Tokens are CSS custom properties in `src/styles/globals.css`
 
 ```css
-/* src/styles/globals.css */
 :root {
-  /* Colors */
+  /* Colors — Brand */
   --color-primary: #f7b70d;
   --color-primary-hover: #f9ca4c;
   --color-primary-active: #c99407;
   --color-secondary: #8db600;
   --color-secondary-hover: #b7ce6b;
   --color-secondary-active: #719200;
+
+  /* Colors — Neutral */
   --color-dark: #16130e;
+  --color-accent: #1b1811;
   --color-white: #ffffff;
   --color-surface: #f5f3ed;
   --color-surface-alt: #f0f4e8;
@@ -38,58 +42,78 @@ During migration, you may encounter Bootstrap classes (`Row`, `Col`, `Container`
   /* Typography */
   --font-primary: 'Poppins', system-ui, sans-serif;
   --font-decorative: 'Gloria Hallelujah', cursive;
-  --font-size-xs: 0.75rem;     /* 12px */
-  --font-size-sm: 0.875rem;    /* 14px */
-  --font-size-base: 1rem;      /* 16px */
-  --font-size-lg: 1.25rem;     /* 20px */
-  --font-size-xl: 1.5rem;      /* 24px */
-  --font-size-2xl: 2rem;       /* 32px */
-  --font-size-3xl: 2.5rem;     /* 40px */
 
-  /* Spacing (consistent scale) */
-  --space-1: 0.25rem;
-  --space-2: 0.5rem;
-  --space-3: 0.75rem;
-  --space-4: 1rem;
-  --space-6: 1.5rem;
-  --space-8: 2rem;
-  --space-12: 3rem;
-  --space-16: 4rem;
-  --space-24: 6rem;
-
-  /* Breakpoints (reference — use in media queries) */
-  --bp-sm: 640px;
-  --bp-md: 768px;
-  --bp-lg: 1024px;
-  --bp-xl: 1280px;
-
-  /* Misc */
-  --radius-sm: 0.375rem;
-  --radius-md: 0.5rem;
-  --radius-lg: 1rem;
-  --shadow-card: 0 2px 8px rgba(22, 19, 14, 0.1);
+  /* Spacing, radius, shadows also defined */
 }
 ```
 
+These are mapped into `tailwind.config.js` so you can use them as Tailwind classes (e.g., `bg-primary`, `text-dark`, `font-alt`).
+
 ### Never hardcode values
 
-```css
-/* Bad — magic hex value */
-background-color: #f7b70d;
-border-color: #1b1811;
-padding: 16px;
+```tsx
+// Bad — magic hex value in className
+className="text-[#f7b70d]"
 
-/* Good — references token */
-background-color: var(--color-primary);
-border-color: var(--color-dark);
-padding: var(--space-4);
+// Good — uses Tailwind token mapped from CSS custom property
+className="text-primary"
+
+// Good — in custom CSS, reference the token
+color: var(--color-primary);
 ```
 
 If a value doesn't exist in the token set, ask whether it should be added as a token or whether an existing token is close enough. Don't invent one-off values.
 
 ---
 
-## Styling Rules
+## Styling Approach
+
+### Use Tailwind utilities inline via `cn()`
+
+```tsx
+import { cn } from '@/lib/cn'
+
+<button className={cn(
+  'px-6 py-2.5 rounded-md font-semibold transition-colors',
+  variant === 'primary' && 'bg-primary text-dark hover:bg-primary-hover',
+  variant === 'secondary' && 'border-2 border-primary text-dark hover:bg-amber-50',
+  className,
+)}>
+```
+
+### Prefer UI primitives over raw utility strings
+
+When the same combination of Tailwind classes appears in multiple places, it should already be encapsulated in a UI primitive. Use the existing ones:
+
+```tsx
+// Bad — repeated layout pattern
+<div className="flex flex-wrap my-6 py-6 lg:my-12 lg:py-12 text-center lg:text-left">
+  <div className="w-full lg:w-1/2">...</div>
+  <div className="w-full lg:w-1/2">...</div>
+</div>
+
+// Good — use the Grid primitive
+<Grid cols={2} centered>
+  <div>...</div>
+  <div>...</div>
+</Grid>
+```
+
+```tsx
+// Bad — repeated section wrapper
+<section className="mx-auto max-w-[1140px] px-4 py-6 lg:py-12">
+  ...
+</section>
+
+// Good — use the Section primitive
+<Section spacing="md">
+  ...
+</Section>
+```
+
+### Don't use `@apply` in CSS files
+
+`@apply` defeats the purpose of utility-first CSS. Only use it for truly repeated patterns that can't be a component (e.g., prose styles from `@layer components` in `globals.css`).
 
 ### Zero `!important`
 
@@ -100,162 +124,88 @@ If you need `!important`, one of these is wrong:
 
 ### No inline `style={}` in JSX
 
-Move all visual properties to CSS/class:
+Move all visual properties to Tailwind classes or CSS:
 
 ```tsx
-// Bad — current pattern
-<Row style={{ maxHeight: '1440px', marginTop: '-10%' }}>
-<div style={{ padding: '16px' }}>
-<span style={{ fontSize: '12px' }}>
+// Bad
+<div style={{ padding: '16px', fontSize: '12px' }}>
 
-// Good — in the CSS module or utility class
-<Row className={styles.heroRow}>
-<div className={styles.cardBody}>
-<span className={styles.caption}>
+// Good
+<div className="p-4 text-xs">
 ```
 
-The only exception is truly dynamic values computed at runtime (e.g., `style={{ '--progress': `${percent}%` }}`).
+The only exception is truly dynamic values computed at runtime (e.g., `style={{ '--hero-bg': `url(${backgroundImage})` }}`).
 
 ### Mobile-first responsive design
 
-Always write the mobile layout first, then layer on wider breakpoints:
+Tailwind is mobile-first by default. Write the base (mobile) styles first, then add responsive variants:
 
-```css
-/* Mobile first (default) */
-.hero {
-  height: 30vh;
-}
-
-/* Tablet and up */
-@media (min-width: 768px) {
-  .hero {
-    height: 50vh;
-  }
-}
-
-/* Desktop and up */
-@media (min-width: 1024px) {
-  .hero {
-    height: 70vh;
-  }
-}
+```tsx
+// Mobile: full width, centered text
+// Desktop (lg:): half width, left-aligned
+<div className="w-full text-center lg:w-1/2 lg:text-left">
 ```
 
-Use only the standard breakpoints defined in the token set. Never use arbitrary values like `425px` or `464px`.
-
-### One naming convention
-
-Use **camelCase** in CSS modules (this is the default behavior of CSS module class name generation):
-
-```css
-/* Component.module.css */
-.heroSection { }
-.heroTitle { }
-.heroSubtitle { }
-```
-
-Do not create global utility classes with kebab-case (`.font-alt`, `.social-link`). If utility classes are needed, use the chosen utility framework (Tailwind) or scoped CSS module classes.
+Use only standard Tailwind breakpoints (`sm`, `md`, `lg`, `xl`, `2xl`). Never use arbitrary breakpoints like `min-[425px]` or `max-[464px]`.
 
 ---
 
-## Component Styling Pattern
+## Global CSS Structure
 
-### Structure a component's styles
+`src/styles/globals.css` is organized into:
 
-```css
-/* Hero.module.css */
+1. **Tailwind directives** — `@tailwind base/components/utilities`
+2. **`:root` tokens** — CSS custom properties for colors, typography, spacing
+3. **`@layer base`** — Base typography resets (body, headings, links)
+4. **`@layer components`** — Utility classes that don't fit as Tailwind config (`.contours`, `.font-alt`, `.social-link`, `.stretched-link`)
 
-/* 1. Layout / positioning */
-.hero {
-  position: relative;
-  display: flex;
-  align-items: center;
-  min-height: 50vh;
-}
-
-/* 2. Visual / decorative */
-.hero {
-  background-size: cover;
-  background-position: center;
-}
-
-/* 3. Variants (scoped to this component) */
-.heroCompact {
-  min-height: 30vh;
-}
-
-/* 4. Responsive overrides */
-@media (min-width: 1024px) {
-  .hero {
-    min-height: 70vh;
-  }
-}
-```
-
-### Parameterize with CSS custom properties for variants
-
-When a component differs only by one or two values (like hero background image per country), use CSS custom properties instead of duplicating the entire stylesheet:
-
-```tsx
-// Component
-<section
-  className={styles.hero}
-  style={{ '--hero-bg': `url(${backgroundImage})` } as React.CSSProperties}
->
-```
-
-```css
-/* Styles */
-.hero {
-  background-image: var(--hero-bg);
-  background-size: cover;
-  background-position: center;
-}
-```
-
-This eliminates the 5 duplicate hero SCSS files.
+Do not add component-specific styles to `globals.css`. If a component needs custom CSS beyond Tailwind utilities, use a co-located SCSS module.
 
 ---
 
 ## Font Loading
 
-### Never use `@import url()` in CSS for fonts
-
-```css
-/* Bad — render-blocking, discovered late */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
-
-/* Good — in index.html, preconnected */
-```
+### Fonts are loaded in `index.html` with preconnect
 
 ```html
-<!-- index.html -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Gloria+Hallelujah&display=swap">
 ```
 
-Single request, preconnected, non-blocking with `display=swap`.
+Never use `@import url()` in CSS for fonts — it's render-blocking.
 
 ---
 
-## Tailwind-Specific Guidance (if adopted)
+## Component Styling Patterns
 
-### Use Tailwind utilities inline, not `@apply` in CSS files
+### Background patterns
 
-`@apply` defeats the purpose of utility-first CSS. Only use it for truly repeated patterns that can't be a component (e.g., prose styles).
-
-### Use `cn()` (clsx + tailwind-merge) for conditional classes
+The `.contours` class in `globals.css` provides SVG background patterns. Combine with modifiers:
 
 ```tsx
-import { cn } from '@/lib/cn'
+// Beige contours background (used in WhySection, etc.)
+<section className="bg-darkened contours">
 
-<button className={cn(
-  'px-6 py-2.5 rounded-md font-semibold transition-colors',
-  variant === 'primary' && 'bg-amber-500 text-dark hover:bg-amber-400',
-  variant === 'secondary' && 'border-2 border-amber-500 text-dark hover:bg-amber-50',
-  className,
-)}>
+// White contours background
+<section className="contours bg-whitened">
+
+// Green contours (footer only)
+<section className="contours footer">
+```
+
+The `Section` primitive with `background="surface-contours"` handles this automatically.
+
+### Decorative text (Highlight)
+
+The brand decorative text pattern (Gloria Hallelujah font in primary gold) is encapsulated in `<Highlight>`:
+
+```tsx
+// Instead of:
+<span className="font-alt font-primary">Mongu</span>
+
+// Use:
+<Highlight>Mongu</Highlight>
 ```
 
 ---
@@ -265,9 +215,9 @@ import { cn } from '@/lib/cn'
 Before considering styles complete:
 
 - [ ] Zero `!important` declarations
-- [ ] Zero hardcoded color/spacing values — all reference tokens
+- [ ] Zero hardcoded color/spacing values — all reference Tailwind tokens or CSS custom properties
 - [ ] Zero inline `style={}` (unless truly dynamic runtime values)
-- [ ] Responsive design is mobile-first with standard breakpoints
+- [ ] Responsive design is mobile-first using standard Tailwind breakpoints
 - [ ] Font loading happens in `<head>`, not in CSS
-- [ ] No duplicate stylesheets for components that differ by one value
-- [ ] Class names follow one consistent convention
+- [ ] Repeated utility class patterns use a UI primitive component
+- [ ] `cn()` used for all conditional class composition
