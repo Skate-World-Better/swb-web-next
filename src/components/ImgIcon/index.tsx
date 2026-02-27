@@ -1,21 +1,20 @@
-import Image from "react-bootstrap/Image";
-import classNames from "classnames";
+import { cn } from '@/lib/cn'
 
-import styles from './index.module.scss'
+const sizeClasses = {
+  small: 'h-9 w-auto',
+  medium: 'h-12 w-auto',
+  large: 'h-28 w-auto',
+} as const
 
 interface ImgIconProps {
-  size: 'small' | 'medium' | 'large',
-  src: string,
+  size: 'small' | 'medium' | 'large'
+  src: string
   alt?: string
   className?: string
 }
 
 const ImgIcon = (props: ImgIconProps) => {
-  return <Image src={props.src} alt={props.alt} className={classNames(props.className, {
-    [styles.large]: props.size === 'large',
-    [styles.medium]: props.size === 'medium',
-    [styles.small]: props.size === 'small'
-  })} loading="lazy" />
+  return <img src={props.src} alt={props.alt ?? ''} className={cn(props.className, sizeClasses[props.size])} loading="lazy" decoding="async" />
 }
 
 export default ImgIcon

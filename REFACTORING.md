@@ -576,3 +576,24 @@ Recommended order of execution, grouped into phases that can each be shipped ind
 3. Write tests for shared components
 4. Add Stylelint for CSS quality
 5. Set up CI pipeline (lint → type-check → test → build)
+
+---
+
+## Known Issues
+
+### `react-helmet` — `UNSAFE_componentWillMount` warning in React 18 Strict Mode
+
+**Console warning:**
+```
+Warning: Using UNSAFE_componentWillMount in strict mode is not recommended…
+Please update the following components: SideEffect(NullComponent2)
+```
+
+**Cause:** `react-helmet` uses the deprecated `UNSAFE_componentWillMount` lifecycle. The library is unmaintained and not compatible with React 18 concurrent features.
+
+**Fix:** Replace with `react-helmet-async` (maintained drop-in fork). Steps:
+1. `npm install react-helmet-async && npm uninstall react-helmet`
+2. Wrap the app root in `<HelmetProvider>`
+3. Update imports in `src/components/SEO/index.tsx` from `react-helmet` → `react-helmet-async`
+
+**Priority:** Low — cosmetic console warning only, no runtime impact.

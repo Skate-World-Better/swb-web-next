@@ -1,29 +1,24 @@
-import Col from 'react-bootstrap/Col'
-import Row from 'react-bootstrap/Row'
 import {ShoppingBag, Mail} from 'react-feather'
-import styles from './index.module.scss'
 import Button from '../../../Button'
-import BaseSection from '../../../BaseSection'
+import Highlight from '../../../ui/Highlight'
 
-import {ReactComponent as AfricaMap} from "../../../../images/africa.svg"
+import AfricaMap from "../../../../images/africa.svg?react"
 
 const HomeHero = () => (
   <section className="contours bg-whitend">
-    <BaseSection className={styles.hero}>
-      <Row className="vh-100 align-items-center" style={{ maxHeight: '1440px', marginTop: '-5%' }}>
-        <Col sm={12} lg={6} className="text-center text-lg-left">
-          <BaseSection.Header.Annotation className="mb-4 pt-5 pt-lg-0">
-            Skate World Better
-          </BaseSection.Header.Annotation>
-          <BaseSection.Header.Base className="mb-4 pb-2 pb-md-0">
-            We are a non-profit organization building <span className="font-alt font-primary">skateparks</span> around Africa
-          </BaseSection.Header.Base>
-          <BaseSection.Text className="mb-4 pb-5 pb-md-0">
+    <div className="mx-auto w-full max-w-[1140px] px-4 [&_h6]:text-lg [&_h6]:font-normal [&_p]:text-base">
+      <div className="flex flex-wrap h-screen items-center" style={{ maxHeight: '1440px', marginTop: '-5%' }}>
+        <div className="w-full lg:w-1/2 text-center lg:text-left">
+          <h6 className="mb-6 pt-12 lg:pt-0">Skate World Better</h6>
+          <h2 className="mb-6 pb-2 md:pb-0">
+            We are a non-profit organization building <Highlight>skateparks</Highlight> around Africa
+          </h2>
+          <p className="mb-6 pb-12 md:pb-0">
             On a mission to support kids and young adults in Africa through
             skateboarding.<br/>
             In close partnership with <a href="https://www.bonidee.cz/?lang=en" target="_blank" rel="noreferrer noopener">Bonidee Skateparks</a>.
-          </BaseSection.Text>
-          <div className="d-flex flex-column flex-md-row justify-content-md-center justify-content-lg-start mt-lg-5">
+          </p>
+          <div className="flex flex-col md:flex-row md:justify-center lg:justify-start lg:mt-12">
             <Button
               link
               href="mailto:martin@skateworldbetter.com"
@@ -37,20 +32,20 @@ const HomeHero = () => (
               link
               href="https://www.freshlabels.cz/en/skate-world-better/"
               primary
-              className="ml-md-3 mt-2 mt-md-0"
+              className="md:ml-4 mt-2 md:mt-0"
             >
               <ShoppingBag size={16} />
               <span className="pl-1 ml-1">Shop here</span>
             </Button>
           </div>
-        </Col>
-        <Col sm={12} lg={6} className="d-none d-lg-block">
+        </div>
+        <div className="w-full lg:w-1/2 hidden lg:block">
           <div style={{ position: 'relative' }}>
             <AfricaMap style={{ width: '100%', height: 'auto', fill: '#f7b70d' }} />
           </div>
-        </Col>
-      </Row>
-    </BaseSection>
+        </div>
+      </div>
+    </div>
   </section>
 )
 

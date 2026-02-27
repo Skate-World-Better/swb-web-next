@@ -1,103 +1,107 @@
 .btn {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  white-space: nowrap;
   font-weight: 400;
-  text-decoration: none !important;
+  text-decoration: none;
   cursor: pointer;
   padding: 4px 24px;
   border: 2px solid;
   border-radius: 6px;
   text-align: center;
   transition: all .3s ease;
-  outline: none !important;
-  color: black;
+  outline: none;
+  color: var(--color-dark);
   line-height: 28px;
 }
 
 .btnPrimary {
-  border-color: #f7b70d;
-  background-color: #f7b70d;
-  color: black;
+  border-color: var(--color-primary);
+  background-color: var(--color-primary);
+  color: var(--color-dark);
 
   &:hover {
-    border-color: #f9ca4c;
-    background-color: #f9ca4c;
-    color: black;
+    border-color: var(--color-primary-hover);
+    background-color: var(--color-primary-hover);
+    color: var(--color-dark);
   }
 
   &:active {
-    border-color: #c99407;
-    background-color: #c99407;
-    color: black;
+    border-color: var(--color-primary-active);
+    background-color: var(--color-primary-active);
+    color: var(--color-dark);
   }
 }
 
 .btnSecondary {
-  border-color: #f7b70d;
-  color: #f7b70d;
+  border-color: var(--color-primary);
+  color: var(--color-primary);
 
   &:hover {
-    border-color: #f9ca4c;
-    background-color: #f9ca4c;
-    color: black;
+    border-color: var(--color-primary-hover);
+    background-color: var(--color-primary-hover);
+    color: var(--color-dark);
   }
 
   &:active {
-    border-color: #c99407;
-    background-color: #c99407;
-    color: black;
+    border-color: var(--color-primary-active);
+    background-color: var(--color-primary-active);
+    color: var(--color-dark);
   }
 }
 
 .btnComplementaryDark {
-  border-color: #8db600;
-  background-color: #8db600;
-  color: black;
+  border-color: var(--color-secondary);
+  background-color: var(--color-secondary);
+  color: var(--color-dark);
 
   &:hover {
-    border-color: #719200;
-    background-color: #719200;
-    color: black;
+    border-color: var(--color-secondary-active);
+    background-color: var(--color-secondary-active);
+    color: var(--color-dark);
   }
 
   &:active {
-    border-color: #b7ce6b;
-    background-color: #b7ce6b;
-    color: black;
+    border-color: var(--color-secondary-hover);
+    background-color: var(--color-secondary-hover);
+    color: var(--color-dark);
   }
 }
 
 .btnComplementaryLight {
-  border-color: #8db600;
-  color: #8db600;
+  border-color: var(--color-secondary);
+  color: var(--color-secondary);
 
   &:hover {
-    border-color: #719200;
-    background-color: #719200;
-    color: black;
+    border-color: var(--color-secondary-active);
+    background-color: var(--color-secondary-active);
+    color: var(--color-dark);
   }
 
   &:active {
-    border-color: #b7ce6b;
-    background-color: #b7ce6b;
-    color: black;
+    border-color: var(--color-secondary-hover);
+    background-color: var(--color-secondary-hover);
+    color: var(--color-dark);
   }
 }
 
 .btnAccent {
-  border-color: #1b1811;
-  background-color: #1b1811;
-  color: #ffffff;
+  border-color: var(--color-accent);
+  background-color: var(--color-accent);
+  color: var(--color-white);
 
   &:hover {
-    border-color: #5e5b56;
-    background-color: #5e5b56;
-    color: #ffffff;
+    border-color: var(--color-accent-hover);
+    background-color: var(--color-accent-hover);
+    color: var(--color-white);
   }
 
   &:active {
-    border-color: #16130e;
-    background-color: #16130e;
-    color: #ffffff;
+    border-color: var(--color-dark);
+    background-color: var(--color-dark);
+    color: var(--color-white);
   }
 }
 

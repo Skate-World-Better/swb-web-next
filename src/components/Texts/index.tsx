@@ -1,5 +1,5 @@
 import type { CSSProperties, ReactNode } from 'react'
-import classNames from 'classnames'
+import { cn } from '@/lib/cn'
 
 import style from './Texts.module.scss'
 
@@ -22,40 +22,28 @@ interface BrushedProps {
   position?: CSSProperties
 }
 
+const brushStyleMap: Record<BrushStyle, string> = {
+  oneAccent: style.brushOneAccent,
+  oneSecondary: style.brushOneSecondary,
+  oneFaded: style.brushOneFaded,
+  oneFadedPlus: style.brushOneFadedPlus,
+  twoAccent: style.brushTwoAccent,
+  twoSecondary: style.brushTwoSecondary,
+  twoFaded: style.brushTwoFaded,
+  threeAccent: style.brushThreeAccent,
+  threeSecondary: style.brushThreeSecondary,
+  threeFaded: style.brushThreeFaded,
+}
+
 export const Brushed = ({
   children,
   isBlock,
   brushStyle,
   position,
 }: BrushedProps) => {
-  const returnBrush = (brushStyle?: BrushStyle) => {
-    switch (brushStyle) {
-      case 'oneAccent':
-        return style.brushOneAccent
-      case 'oneSecondary':
-        return style.brushOneSecondary
-      case 'oneFaded':
-        return style.brushOneFaded
-      case 'oneFadedPlus':
-        return style.brushOneFadedPlus
-      case 'twoAccent':
-        return style.brushTwoAccent
-      case 'twoSecondary':
-        return style.brushTwoSecondary
-      case 'twoFaded':
-        return style.brushTwoFaded
-      case 'threeAccent':
-        return style.brushThreeAccent
-      case 'threeSecondary':
-        return style.brushThreeSecondary
-      case 'threeFaded':
-        return style.brushThreeFaded
-    }
-  }
-
-  return <span className={classNames(style.spanBrushed, { [style.block]: isBlock })}>
+  return <span className={cn(style.spanBrushed, isBlock && style.block)}>
     {children}
-    <div style={position} className={classNames(style.brush, returnBrush(brushStyle))} />
+    <div style={position} className={cn(style.brush, brushStyle && brushStyleMap[brushStyle])} />
   </span>
 }
 
@@ -72,9 +60,9 @@ export const BrushedCorners = ({
   positionBottom,
   isBlock,
 }: BrushedCornersProps) => {
-  return <span className={classNames(style.spanBrushed, { [style.block]: isBlock })}>
+  return <span className={cn(style.spanBrushed, isBlock && style.block)}>
     {children}
-    <div style={positionTop} className={classNames(style.brush, style.brushThreeFaded, style.brushCornerTop)} />
-    <div style={positionBottom} className={classNames(style.brush, style.brushThreeFaded, style.brushCornerBottom)} />
+    <div style={positionTop} className={cn(style.brush, style.brushThreeFaded, style.brushCornerTop)} />
+    <div style={positionBottom} className={cn(style.brush, style.brushThreeFaded, style.brushCornerBottom)} />
   </span>
 }

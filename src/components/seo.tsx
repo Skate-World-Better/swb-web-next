@@ -73,5 +73,4 @@ const SEO = ({ description = '', lang = 'en', meta = [], title }: SEOProps) => {
   )
 }
 
-// eslint-disable-next-line react-refresh/only-export-components -- SEO is all-caps by convention, not detected as PascalCase
 export default SEO

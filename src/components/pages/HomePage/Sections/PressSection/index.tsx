@@ -1,22 +1,20 @@
-import Col from 'react-bootstrap/Col'
-import Row from 'react-bootstrap/Row'
-
-import BaseSection from '../../../../BaseSection'
+import Section from '../../../../ui/Section'
+import Highlight from '../../../../ui/Highlight'
 import ImageCard from '../../../../Card'
 import PressCarousel from '../../../../Carousel'
 import { pressData } from '../../../../../data/press'
 
 const PressSection = () => (
-  <BaseSection className="py-2 py-lg-4">
-    <Row className="pt-5 mb-3 pt-lg-5 mt-lg-5">
-      <Col xs={12} lg={4} className="offset-lg-4">
-        <BaseSection.Header.Text className="text-center mb-4">
-          What has been <span className="font-alt font-primary">written</span> about us
-        </BaseSection.Header.Text>
-      </Col>
-    </Row>
-    <Row>
-      <Col xs={12}>
+  <Section spacing="sm">
+    <div className="flex flex-wrap pt-12 mb-4 lg:pt-12 lg:mt-12">
+      <div className="w-full lg:w-1/3 lg:ml-[33.33%]">
+        <h3 className="text-center mb-6">
+          What has been <Highlight>written</Highlight> about us
+        </h3>
+      </div>
+    </div>
+    <div className="flex flex-wrap">
+      <div className="w-full">
         <PressCarousel
           items={pressData}
           config={{
@@ -37,9 +35,9 @@ const PressSection = () => (
             />
           )}
         />
-      </Col>
-    </Row>
-  </BaseSection>
+      </div>
+    </div>
+  </Section>
 )
 
 export default PressSection

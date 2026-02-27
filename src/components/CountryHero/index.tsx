@@ -1,11 +1,5 @@
 import type { CSSProperties } from 'react'
-import Col from 'react-bootstrap/Col'
-import Row from 'react-bootstrap/Row'
-import classNames from 'classnames'
-
-import BaseSection from '../BaseSection'
-
-import styles from './index.module.scss'
+import { cn } from '@/lib/cn'
 
 interface CountryHeroProps {
   cityName: string
@@ -28,19 +22,15 @@ const CountryHero = ({
   }
 
   return (
-    <div className={styles.heroSection} style={heroStyle}>
-      <BaseSection fluid className="h-100">
-        <Row className="h-100 align-items-center">
-          <Col className={classNames('text-center text-uppercase', { 'text-white': lightText })}>
-            <BaseSection.Header.Annotation as="p">
-              {cityName}
-            </BaseSection.Header.Annotation>
-            <BaseSection.Header.Base as="h1">
-              {countryName}
-            </BaseSection.Header.Base>
-          </Col>
-        </Row>
-      </BaseSection>
+    <div className="relative bg-no-repeat bg-cover h-[30vh] min-[425px]:h-[50vh]" style={heroStyle}>
+      <div className="w-full px-4 h-full">
+        <div className="flex h-full items-center">
+          <div className={cn('w-full text-center uppercase', lightText && 'text-white')}>
+            <p>{cityName}</p>
+            <h1>{countryName}</h1>
+          </div>
+        </div>
+      </div>
     </div>
   )
 }
