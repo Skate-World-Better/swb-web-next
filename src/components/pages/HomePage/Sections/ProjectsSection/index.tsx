@@ -1,29 +1,25 @@
-import Col from 'react-bootstrap/Col'
-import Row from 'react-bootstrap/Row'
-
-import BaseSection from '../../../../BaseSection'
+import Section from '../../../../ui/Section'
+import Highlight from '../../../../ui/Highlight'
 import ImageCard from '../../../../Card'
 
 import ProjectOneImage from './images/project-1.jpg'
 import ProjectTwoImage from './images/project-2.jpg'
 
 const ProjectsSection = () => (
-  <BaseSection className="mb-5 mb-lg-5 py-lg-5">
-    <Row className="py-5 my-5 align-items-center text-center text-lg-left">
-      <Col xs={12} lg={4}>
-        <BaseSection.Header.Annotation className="mb-4 sub">
-          Projects
-        </BaseSection.Header.Annotation>
-        <BaseSection.Header.Text className="mb-5">
-          These are our first two projects in <span className="font-alt font-primary">Mozambique</span>
-        </BaseSection.Header.Text>
-        <BaseSection.Header.Annotation className="py-4">
+  <Section className="mb-12 lg:mb-12 lg:py-12">
+    <div className="flex flex-wrap py-12 my-12 items-center text-center lg:text-left">
+      <div className="w-full lg:w-1/3">
+        <h6 className="mb-6 sub">Projects</h6>
+        <h3 className="mb-12">
+          These are our first two projects in <Highlight>Mozambique</Highlight>
+        </h3>
+        <h6 className="py-6">
           We have built one park in the centre of the city accessible to
           everyone. The second is on the very edge of the city with virtually
           zero places for kids to play on.
-        </BaseSection.Header.Annotation>
-      </Col>
-      <Col xs={12} lg={4}>
+        </h6>
+      </div>
+      <div className="w-full lg:w-1/3">
         <ImageCard
           imageSrc={ProjectOneImage}
           isExpandable={false}
@@ -31,11 +27,9 @@ const ProjectsSection = () => (
           link="/mozambique"
           isLink
         />
-        <BaseSection.Text className="text-center mt-4">
-          Maxaquene skatepark
-        </BaseSection.Text>
-      </Col>
-      <Col xs={12} lg={4}>
+        <p className="text-center mt-6">Maxaquene skatepark</p>
+      </div>
+      <div className="w-full lg:w-1/3">
         <ImageCard
           imageSrc={ProjectTwoImage}
           isExpandable={false}
@@ -43,12 +37,10 @@ const ProjectsSection = () => (
           link="/mozambique"
           isLink
         />
-        <BaseSection.Text className="text-center mt-4">
-          Khongolote skatepark
-        </BaseSection.Text>
-      </Col>
-    </Row>
-  </BaseSection>
+        <p className="text-center mt-6">Khongolote skatepark</p>
+      </div>
+    </div>
+  </Section>
 )
 
 export default ProjectsSection

@@ -1,19 +1,21 @@
-import classNames from 'classnames'
+import type { ReactNode } from 'react'
+import { cn } from '@/lib/cn'
 
 import styles from './index.module.scss'
 
 interface ButtonProps {
-  children: any
+  children: ReactNode
   className?: string
   link?: boolean
   href?: string
-  target?: string,
-  primary?: boolean,
-  secondary?: boolean,
-  complementary?: boolean,
-  light?: boolean,
-  accent?: boolean,
+  target?: string
+  primary?: boolean
+  secondary?: boolean
+  complementary?: boolean
+  light?: boolean
+  accent?: boolean
   block?: boolean
+  onClick?: () => void
 }
 
 const Button = ({
@@ -27,30 +29,31 @@ const Button = ({
   complementary,
   light,
   accent,
-  block
+  block,
+  onClick,
 }: ButtonProps) => {
   if (link) {
-    return <a href={href} rel="noreferrer" target={target} className={classNames(className, {
-      [styles.btn]: true,
-      [styles.btnPrimary]: primary,
-      [styles.btnSecondary]: secondary,
-      [styles.btnAccent]: accent,
-      [styles.btnBlock]: block,
-      [styles.btnComplementaryDark]: complementary && !light,
-      [styles.btnComplementaryLight]: complementary && light,
-    })}>
+    return <a href={href} rel="noreferrer" target={target} className={cn(className,
+      styles.btn,
+      primary && styles.btnPrimary,
+      secondary && styles.btnSecondary,
+      accent && styles.btnAccent,
+      block && styles.btnBlock,
+      complementary && !light && styles.btnComplementaryDark,
+      complementary && light && styles.btnComplementaryLight,
+    )}>
       {children}
     </a>
   }
 
-  return <button className={classNames(className, {
-    [styles.btn]: true,
-    [styles.btnAccent]: accent,
-    [styles.btnPrimary]: primary,
-    [styles.btnSecondary]: secondary,
-    [styles.btnBlock]: block,
-    [styles.btnComplementaryDark]: complementary,
-  })}>
+  return <button type="button" onClick={onClick} className={cn(className,
+    styles.btn,
+    accent && styles.btnAccent,
+    primary && styles.btnPrimary,
+    secondary && styles.btnSecondary,
+    block && styles.btnBlock,
+    complementary && styles.btnComplementaryDark,
+  )}>
     {children}
   </button>
 }
