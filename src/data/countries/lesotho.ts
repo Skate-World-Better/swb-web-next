@@ -36,7 +36,7 @@ export const lesothoData: CountryPageData = {
         icon: LocalNgo,
         title: 'Local NGO',
         description:
-          'We have a great support for this project amidst the local crew, but also the local non-profit sector. We count on a regular involvement of the Lesotho skateboarding members, but on top of that, we have partnered with [Kick4Life](https://www.kick4life.org/) organization that will be involved in the construction process.',
+          'We have a great support for this project amidst the local crew, but also the local non-profit sector. We count on a regular involvement of the Lesotho skateboarding members, but on top of that, we have partnered with [RISE](https://www.riseint.org/) organization that will be involved in the construction process.',
       },
     ],
   },
